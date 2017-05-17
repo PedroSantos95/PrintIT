@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     private $acl;
+    
 
     public function __construct()
     {
