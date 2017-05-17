@@ -15,11 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/users', function () {
-    $users = DB::table('users')->paginate(10);
+Route::get('/users', 'UserController@list')->name('users');
 
-    return view('users', compact('users'));
-
-})->name('users');
+Route::get('/users/{id)', 'UserController@show')->name('userShow');
 
 Auth::routes();

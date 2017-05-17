@@ -3,27 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class UserController extends Controller
 {
-    private $acl;
     
-
     public function __construct()
     {
-        parent::__construct();
-        $this->acl = new PermissionManager();
-        $this->acl->authorize();
+
     }
 
-    public function listUsers()
+    public function list()
+    {       
+        $users = DB::table('users')->paginate(10);
+
+    	return view('users', compact('users'));
+    }
+
+
+    public function show()
     {
-        $this->acl->authorize('user.index');
-
-        $users = User::all();
-        $title = 'List users';
-
-        render_view('users.list', compact('title', 'users'));
+    	
     }
 
 }
