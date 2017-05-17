@@ -16,7 +16,10 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/users', function () {
-    return view('users');
+    $users = DB::table('users')->paginate(10);
+
+    return view('users', compact('users'));
+
 })->name('users');
 
 Auth::routes();
