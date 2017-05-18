@@ -19,9 +19,9 @@
 			@foreach($users as $index => $user)
 			<tr>
 				@if($user->profile_photo)
-				<td style="text-align: center"><img style="width: 80px; height: 80px" src="{{ asset('img/profiles/'. $user->profile_photo)}}" /></td>
+				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset('img/profiles/'. $user->profile_photo)}}" /></td>
 				@else
-				<td style="text-align: center"><img style="width: 80px; height: 80px" src="{{ asset('img/profiles/unknowmale.png')}}" /></td>
+				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset('img/profiles/unknowmale.png')}}" /></td>
 				@endif
 				<td style="text-align: center; padding-top: 35px;">{{$user->name}}</td>
 				<td style="text-align: center; padding-top: 35px;">{{$user->email}}</td>
@@ -37,7 +37,7 @@
 				@endif
 				<td style="text-align: center; padding-top: 27px;">
 					<button id="btn2" type="button" class="btn btn-success">
-						Show Profile
+						<a href="{{url('users/'.$user->id)}}"><span style="color: white;" >Show Profile</span></a>
 					</button>
 				</td>
 			</tr>

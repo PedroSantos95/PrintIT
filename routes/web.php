@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Route::get('/users', 'UserController@list')->name('users');
 
-Route::get('/users/{id)', 'UserController@show')->name('userShow');
+Route::get('/users/{id}', 'UserController@show')->name('userShow');
 
 Auth::routes();

@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <section class="widget">
-                            <img alt="Venue" src="img/logo-white.png" style="height: 40px; margin-bottom: 20px;">
+                            <img alt="Venue" src="{{asset('img/logo-white.png')}}" style="height: 40px; margin-bottom: 20px;">
                             <p class="pull-bottom-small">
                                 Class aptent taciti sociosqu ad litora torquent per conubia nostra,
                                 per inceptos himenaeos. Nulla nunc dui, tristique in semper vel,
@@ -121,6 +121,6 @@
 <script src="{{asset('plugins/rs-plugin/js/jquery.themepunch.tools.min.js')}}"></script>
 <script src="{{asset('plugins/rs-plugin/js/jquery.themepunch.revolution.min.js')}}"></script>
 
-<script src="js/theme-core.js"></script>
+<script src="{{asset('js/theme-core.js')}}"></script>
 </body>
 </html>
