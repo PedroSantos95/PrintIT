@@ -1,10 +1,10 @@
 @extends('layouts.header')
 
 @yield('content')
-<br>
+
 <br>
 <div align="center">
-	<table id="listUsers"class="table table-hover" id="users-admin" style="width:80%;">
+	<table id="listUsers"class=" table table-hover id="users-admin" style="width:80%;">
 		<thead class="thead-inverse">
 			<tr>
 				<th style="text-align: center" class="col-xs-1">Photo</th>
@@ -19,7 +19,7 @@
 			@foreach($users as $index => $user)
 			<tr>
 				@if($user->profile_photo)
-				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset('img/profiles/'. $user->profile_photo)}}" /></td>
+				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset('img/profiles/'.$user->profile_photo)}}" /></td>
 				@else
 				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset('img/profiles/unknowmale.png')}}" /></td>
 				@endif

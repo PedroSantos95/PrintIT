@@ -19,4 +19,8 @@ Route::get('/users', 'UserController@list')->name('users');
 
 Route::get('/users/{id}', 'UserController@show')->name('userShow');
 
+Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow');
+
+Route::get('/requests', 'RequestPrintController@list')->name('requests');
+
 Auth::routes();

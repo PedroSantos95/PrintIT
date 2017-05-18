@@ -107,6 +107,7 @@
 
 <!-- Libs -->
 <script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/sorttable.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/jquery.flexslider-min.js')}}"></script>
 <script src="{{asset('js/jquery.easing.js')}}"></script>
