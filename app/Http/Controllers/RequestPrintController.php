@@ -18,8 +18,8 @@ class RequestPrintController extends Controller
 
      public function show($id)
     {
-        $request = RequestPrint::find($id);
-        return view('requests.showRequest', compact('requst'));
+        $request = DB::table('requests')->where('id',$id)->get();
+        return view('requests.showRequest', compact('request'));
     }
 
 }

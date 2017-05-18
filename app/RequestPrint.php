@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\Request;
-use Illuminate\Foundation\Auth\Request as Authenticatable;;
+use App\Model;
 
-class RequestPrint extends Authenticatable
+class RequestPrint extends Model
 {
-    use Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
