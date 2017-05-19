@@ -24,3 +24,7 @@ Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow')
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
 Auth::routes();
+
+Route::get('/home', function(){
+	return view('home');
+})->name('home');

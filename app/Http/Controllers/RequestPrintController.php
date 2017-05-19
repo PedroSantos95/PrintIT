@@ -18,7 +18,7 @@ class RequestPrintController extends Controller
 
      public function show($id)
     {
-        $request = DB::table('requests')->where('id',$id)->get();
+        $request = RequestPrint::findOrFail($id);
         return view('requests.showRequest', compact('request'));
     }
 

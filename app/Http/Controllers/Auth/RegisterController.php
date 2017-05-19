@@ -28,7 +28,7 @@ class RegisterController extends Controller
             'phone' => 'nullable|digits:9',
             'profile_url' => 'nullable',
             'profile_photo' => 'nullable',
-            'presentation' => 'nullable',            
+            'presentation' => 'nullable',
         ]);
     }
 
@@ -47,7 +47,6 @@ class RegisterController extends Controller
             'activated' => "0",
             'print_evals' => "0",
             'print_counts' => "0",
-
         ]);
     }
 }

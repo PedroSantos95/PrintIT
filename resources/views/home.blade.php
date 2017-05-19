@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
-@section('content')
+@yield('content')
+<br><br><br>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -14,4 +15,5 @@
         </div>
     </div>
 </div>
-@endsection
+<br><br>
+@extends('layouts.footer')

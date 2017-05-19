@@ -2,12 +2,11 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Request;
-use App\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class RequestPrint extends Model
 {
+    protected $table='requests';
     /**
      * The attributes that are mass assignable.
      *
