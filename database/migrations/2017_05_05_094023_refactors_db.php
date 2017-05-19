@@ -36,6 +36,8 @@ class RefactorsDb extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('confirmed')->default(0);
+            $table->string('confirmation_code')->nullable();
             $table->string('phone')->nullable();
             $table->string('profile_photo')->nullable();
             $table->string('profile_url')->nullable();
