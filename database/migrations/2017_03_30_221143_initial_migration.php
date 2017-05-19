@@ -26,6 +26,7 @@ class InitialMigration extends Migration
             $table->string('presentation')->nullable();
             $table->integer('print_evals');
             $table->integer('print_counts');
+            $table->string('confirmation_code')->nullable();
             $table->integer('department_id')->unsigned();
             $table->timestamps();
         });

@@ -25,6 +25,11 @@ Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
 Auth::routes();
 
+Route::get('register/verify/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'RegisterController@'
+]);
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', function(){
