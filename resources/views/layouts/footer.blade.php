@@ -89,12 +89,6 @@
             <div class="container">
                 <p>© Copyright 2017 by Me. All Rights Reserved.</p>
                 <nav class="footer-menu std-menu">
-                    <ul class="menu">
-                        <li><a href="{{route('welcome')}}">Home</a></li>
-                        <li><a href="#">Users</a></li>
-                        <li><a href="{{route('login')}}">Login</a></li>
-                        <li><a href="{{route('register')}}">Register</a></li>
-                    </ul>
                 </nav>
             </div>
         </div>

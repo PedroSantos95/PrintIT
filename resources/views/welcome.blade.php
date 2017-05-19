@@ -7,9 +7,8 @@
     <!--Set your own slider options. Look at the v_RevolutionSlider() function in 'theme-core.js' file to see options-->
     <div class="home-slider-wrap fullwidthbanner-container" id="home">
         <div class="v-rev-slider" data-slider-options='{ "startheight": 700 }'>
-
             <ul>
-
+                
                 <li data-transition="fade" data-slotamount="7" data-masterspeed="600">
 
                     <img src="img/slider/image2.png" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
@@ -45,33 +44,7 @@
                 Print easily using PrintIT.
             </div>
 
-            <div class="tp-caption sfl stl"
-            data-x="450"
-            data-y="450"
-            data-speed="600"
-            data-start="1800"
-            data-easing="Power1.easeInOut"
-            data-splitin="none"
-            data-splitout="none"
-            data-elementdelay="0"
-            data-endelementdelay="0"
-            data-endspeed="300">
-            <a href="{{route('login')}}" class="btn v-btn v-second-light">LOGIN</a>
-        </div>
-
-        <div class="tp-caption sfl stl"
-        data-x="570"
-        data-y="450"
-        data-speed="600"
-        data-start="2200"
-        data-easing="Power1.easeInOut"
-        data-splitin="none"
-        data-splitout="none"
-        data-elementdelay="0"
-        data-endelementdelay="0"
-        data-endspeed="300">
-        <a href="{{route('register')}}" class="btn v-btn v-second-light">REGISTER</a>
-    </div>
+          
 
     <div class="tp-caption sfl stl"
     data-x="110"
@@ -88,6 +61,7 @@
     <img src="img/iphone2.png" />
 </div>
 </li>
+
 </ul>
 </div>
 
