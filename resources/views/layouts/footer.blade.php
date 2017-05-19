@@ -88,7 +88,7 @@
         <div class="copyright">
             <div class="container">
                 <p>© Copyright 2017 by Me. All Rights Reserved.</p>
-                <nav class="footer-menu std-menu">
+                <nav class="footer-menu std-menu">  
                 </nav>
             </div>
         </div>
