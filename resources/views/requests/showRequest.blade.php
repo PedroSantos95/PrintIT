@@ -18,9 +18,11 @@
 								</div>
 							</div>
 						<div class="pull-right col-md-2	">
-							<button type="button" class="btn btn-primary" style="width: 100%">
-								<a href="{{url('/users')}}"><span style="color:white;" >Back</span></a>
+							<button type="button" class="btn btn-primary" style="width: 200%">
+								<a href="{{url('/requests')}}"><span style="color:white;" >Back</span></a>
 							</button>
+						</div>
+						</div>
 						</div>
 					</form>
 				</div>
