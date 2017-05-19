@@ -56,6 +56,11 @@
                         <li>
                             <a data-hash href="{{route('welcome')}}"><i class="fa fa-home"></i>Home</a>
                         </li>
+                        @if(Auth::check())
+                        <li>
+                            <a data-hash href="{{route('home')}}"><i class="fa fa-download"></i>Dashboard</a>
+                        </li>
+                        @endif
                         <li>
                             <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
                         </li>
@@ -74,6 +79,7 @@
                             <a data-hash href="{{route('logout')}}"><i class="fa fa-download"></i>Logout</a>
                         </li>
                         @endif
+
                     </ul>
                 </nav>
                 <!--End Main Menu-->
