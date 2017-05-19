@@ -6,13 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Input;
 
 class RegisterController extends Controller
 {
     use RegistersUsers;
-
-    protected $redirectTo = '/home';
 
     public function __construct()
     {
@@ -29,7 +26,7 @@ class RegisterController extends Controller
             'phone' => 'nullable|digits:9',
             'profile_url' => 'nullable',
             'profile_photo' => 'nullable',
-            'presentation' => 'nullable',
+            'presentation' => 'nullable'
         ]);
     }
 
@@ -37,9 +34,8 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        $confirmation_code = str_random(30);
 
-        $user = User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -53,39 +49,5 @@ class RegisterController extends Controller
             'print_evals' => "0",
             'print_counts' => "0",
         ]);
-
-        $confirmation_code = $user->confirmation_code;
-
-        \Mail::send('emailconfirmation', compact('user','confirmation_code'), function($message) {
-            $message->to($user('email'), $user('name'))
-                ->subject('Verify your email address');
-        });
-
-        \Flash::message('Thanks for signing up! Please check your email.');
-
-        return Redirect::home();
-    }
-
-     public function confirm($confirmation_code)
-    {
-        if( ! $confirmation_code)
-        {
-            throw new InvalidConfirmationCodeException;
-        }
-
-        $user = User::whereConfirmationCode($confirmation_code)->first();
-
-        if ( ! $user)
-        {
-            throw new InvalidConfirmationCodeException;
-        }
-
-        $user->confirmed = 1;
-        $user->confirmation_code = null;
-        $user->save();
-
-        Flash::message('You have successfully verified your account.');
-
-        return Redirect::route('login_path');
     }
 }
