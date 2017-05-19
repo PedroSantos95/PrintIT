@@ -12,12 +12,6 @@
                                 <a href="{{url('/requests')}}"><span style="color:white;" >Requests</span></a>
                             </button>
                         </div>
-
-                        <div class="pull-right col-md-2 ">
-                            <button type="button" class="btn btn-primary" style="width: 100%">
-                                <a href="{{route('logout')}}"><span style="color:white;" >Logout</span></a>
-                            </button>
-                        </div>
                         </div>
             </div>
         </div>

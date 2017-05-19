@@ -59,15 +59,21 @@
                         <li>
                             <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
                         </li>
+                        @if(!Auth::check())
                         <li>
                             <a data-hash href="{{route('login')}}"><i class="fa fa-laptop"></i>Login</a>
                         </li>
+                        @endif
+                        @if(!Auth::check())
                         <li>
                             <a data-hash href="{{route('register')}}"><i class="fa fa-download"></i>Register</a>
                         </li>
+                        @endif
+                        @if(Auth::check())
                         <li>
                             <a data-hash href="{{route('logout')}}"><i class="fa fa-download"></i>Logout</a>
                         </li>
+                        @endif
                     </ul>
                 </nav>
                 <!--End Main Menu-->
