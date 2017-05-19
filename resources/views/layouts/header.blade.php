@@ -65,6 +65,9 @@
                         <li>
                             <a data-hash href="{{route('register')}}"><i class="fa fa-download"></i>Register</a>
                         </li>
+                        <li>
+                            <a data-hash href="{{route('logout')}}"><i class="fa fa-download"></i>Logout</a>
+                        </li>
                     </ul>
                 </nav>
                 <!--End Main Menu-->
