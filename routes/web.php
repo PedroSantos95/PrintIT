@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/home', function(){
+	return view('home');
+})->name('home');
+
+Auth::routes();
+
 Route::get('/users', 'UserController@list')->name('users');
 
 Route::get('/users/{id}', 'UserController@show')->name('userShow');
@@ -23,14 +29,10 @@ Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow')
 
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
-Route::get('/printers', 'PrinterController@list')->name('requests');
+Route::get('/printers', 'PrinterController@list')->name('printers');
 
-Auth::routes();
+Route::get('/printers/add', 'PrinterController@create')->name('addPrinter');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-Route::get('/home', function(){
-	return view('home');
-})->name('home');
 
 Route::get('confirmEmail/{id}', 'Auth\RegisterController@confirmEmail');

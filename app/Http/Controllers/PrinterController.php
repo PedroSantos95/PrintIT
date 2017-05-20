@@ -16,4 +16,9 @@ class PrinterController extends Controller
         return view('printers', compact('printers'));
     }
 
+    public function create()
+    {	
+    	return view('addPrinter');
+	}
+
 }
