@@ -22,4 +22,8 @@ class RequestPrintController extends Controller
         return view('requests.showRequest', compact('request'));
     }
 
+    public function create()
+    {
+        return view('requests.addRequest');
+    }
 }

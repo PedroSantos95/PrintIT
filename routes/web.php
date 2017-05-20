@@ -31,7 +31,9 @@ Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
 Route::get('/printers', 'PrinterController@list')->name('printers');
 
-Route::get('/printers/add', 'PrinterController@create')->name('addPrinter');
+Route::get('/printers/addPrinter', 'PrinterController@create')->name('addPrinter');
+
+Route::get('/requests/addRequest', 'RequestPrintController@create')->name('addRequest');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

@@ -4,7 +4,7 @@
 
 <br>
 <div align="center">
-	<table id="listRequests"class=" table table-hover id="users-admin" style="width:80%;">
+	<table id="listRequests" class=" table table-hover id="users-admin" style="width:80%;">
 		<thead class="thead-inverse">
 			<tr>
 				<th style="text-align: center" class="col-xs-1">Request ID</th>
@@ -38,6 +38,11 @@
 			@endforeach
 		</tbody>
 	</table>
+				<div>
+				<button id="btn2" type="button" class="btn btn-primary">
+						<a href="{{url('requests/addRequest')}}"><span style="color: white;" >Add Request</span></a>
+					</button>
+			</div>
 	{{$requests->render()}}
 </div>
 

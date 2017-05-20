@@ -23,7 +23,7 @@
 		</tbody>
 	</table>
 	<div classe="col-md-12 col-md-offset-5" >
-	<button id="btn2" type="button" class="btn btn-success">
+	<button id="btn2" type="button" class="btn btn-primary">
 		<a href="{{url('/printers/add')}}"><span style="color: white;" >Add Printer</span></a>
 	</button>		
 	</div>
