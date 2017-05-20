@@ -56,14 +56,23 @@
                         <li>
                             <a data-hash href="{{route('welcome')}}"><i class="fa fa-home"></i>Home</a>
                         </li>
+                                                <li>
+                            <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
+                        </li>
                         @if(Auth::check())
                         <li>
                             <a data-hash href="{{route('home')}}"><i class="fa fa-download"></i>Dashboard</a>
                         </li>
                         @endif
-                        <li>
-                            <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
+                        @if(Auth::check())
+                        <li class="dropdown">
+                        <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('/requests')}}">Requests</a></li>
+                                <li><a href="{{url('/printers')}}">Prints</a></li>
+                            </ul>
                         </li>
+                        @endif
                         @if(!Auth::check())
                         <li>
                             <a data-hash href="{{route('login')}}"><i class="fa fa-laptop"></i>Login</a>
@@ -76,10 +85,11 @@
                         @endif
                         @if(Auth::check())
                         <li>
-                            <a data-hash href="{{route('logout')}}"><i class="fa fa-download"></i>Logout</a>
+                            <a data-hash href="{{route('logout')}}">Logout</a>
                         </li>
                         @endif
 
+                        
                     </ul>
                 </nav>
                 <!--End Main Menu-->
