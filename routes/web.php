@@ -23,6 +23,8 @@ Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow')
 
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
+Route::get('/printers', 'PrinterController@list')->name('requests');
+
 Auth::routes();
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

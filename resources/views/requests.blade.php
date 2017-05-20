@@ -4,7 +4,7 @@
 
 <br>
 <div align="center">
-	<table id="listUsers"class=" table table-hover id="users-admin" style="width:80%;">
+	<table id="listRequests"class=" table table-hover id="users-admin" style="width:80%;">
 		<thead class="thead-inverse">
 			<tr>
 				<th style="text-align: center" class="col-xs-1">Request ID</th>
