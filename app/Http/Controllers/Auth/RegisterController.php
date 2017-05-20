@@ -30,7 +30,6 @@ class RegisterController extends Controller
             'presentation' => 'nullable'
         ]);
     }
-
     
 
     protected function create(array $data)
@@ -55,7 +54,9 @@ class RegisterController extends Controller
 
         \Mail::to($user->email)->send(new VerificationMail($user));
 
+        //dd('ola');
         return $user;
+
     }
 
     public function confirmEmail($confirmation_code)
@@ -67,12 +68,14 @@ class RegisterController extends Controller
 
         }
 
-
+        //Nao chega
         $user->confirmed = 1;
         $user->confirmation_code = null;
         $user->save();
-
-        return view('home');
+        //Nao chega
+        Route::logout();
+        //Nao chega
+        return view('welcome');
     }
 }
     

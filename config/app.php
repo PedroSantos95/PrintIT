@@ -66,14 +66,6 @@ return [
 
     'timezone' => 'UTC',
 
-
-    'providers' => [
-    // ...
-
-    Krucas\LaravelUserEmailVerification\UserEmailVerificationServiceProvider::class,
-
-    ],
-
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
