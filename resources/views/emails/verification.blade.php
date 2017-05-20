@@ -1,7 +1,7 @@
 @component('mail::message')
-# Introduction
+# Account Verification
 
-The body of your message.
+Please click the link bellow to verify your account
 
 @component('mail::button', ['url' => $url])
 Button Text
