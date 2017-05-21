@@ -54,7 +54,6 @@ class RegisterController extends Controller
 
         \Mail::to($user->email)->send(new VerificationMail($user));
 
-        //dd('ola');
         return $user;
 
     }
