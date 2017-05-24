@@ -4,7 +4,7 @@
 <br>
 
 <div align="center">
-	<table id="listPrinters"class=" table table-hover id="users-admin" style="width:80%;">
+	<table id="listPrinters" class=" table table-hover sortable" id="users-admin" style="width:80%;">
 		<thead class="thead-inverse">
 			<tr>
 				<th style="text-align: center" class="col-xs-1">Name</th>
