@@ -21,4 +21,12 @@ class PrinterController extends Controller
     	return view('addPrinter');
 	}
 
+	public function add(Request $request)
+	{
+		$printer = new Printer();
+		$printer->name = $request->get('name');
+		$printer->save();
+		return redirect('printers');
+	}
+
 }

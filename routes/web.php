@@ -25,6 +25,10 @@ Route::get('/users', 'UserController@list')->name('users');
 
 Route::get('/users/{id}', 'UserController@show')->name('userShow');
 
+Route::get('/requests/create', 'RequestPrintController@create')->name('addRequest');
+
+Route::post('/requests/create', 'RequestPrintController@add')->name('createRequest');
+
 Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow');
 
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
@@ -33,7 +37,7 @@ Route::get('/printers', 'PrinterController@list')->name('printers');
 
 Route::get('/printers/addPrinter', 'PrinterController@create')->name('addPrinter');
 
-Route::get('/requests/addRequest', 'RequestPrintController@create')->name('addRequest');
+Route::post('/printers/create', 'PrinterController@add')->name('createPrinter');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

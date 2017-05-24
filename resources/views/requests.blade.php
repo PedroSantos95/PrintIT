@@ -40,7 +40,7 @@
 	</table>
 				<div>
 				<button id="btn2" type="button" class="btn btn-primary">
-						<a href="{{url('requests/addRequest')}}"><span style="color: white;" >Add Request</span></a>
+						<a href="{{route('addRequest')}}"><span style="color: white;" >Add Request</span></a>
 					</button>
 			</div>
 	{{$requests->render()}}
