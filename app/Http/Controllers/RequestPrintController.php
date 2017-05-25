@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Comments;
 use App\RequestPrint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;    
@@ -20,7 +21,8 @@ class RequestPrintController extends Controller
      public function show($id)
     {
         $request = RequestPrint::findOrFail($id);
-        return view('requests.showRequest', compact('request'));
+        $comments = Comments::where('request_id', $request->id)->get();
+        return view('requests.showRequest', compact('request', 'comments'));
     }
 
     public function create()

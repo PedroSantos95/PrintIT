@@ -7,20 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class RequestPrint extends Model
 {
     protected $table='requests';
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array 
-     * 
-     */
-    protected $fillable = [
-        'file', 'email', 'password',
-    ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
+    }
 
 }

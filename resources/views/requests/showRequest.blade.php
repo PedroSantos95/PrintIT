@@ -179,6 +179,18 @@
 								</div>
 								@endif
 							</div>
+
+							<div class="comments">
+								@foreach ($comments as $comment)
+								
+				
+								{{$comment->comment}}
+							
+								<br>
+
+								@endforeach
+							</div>
+
 						<div class="pull-right col-md-2	">
 							<button type="button" class="btn btn-primary" style="width: 200%">
 								<a href="{{url('/requests')}}"><span style="color:white;" >Back</span></a>
