@@ -31,6 +31,8 @@ Route::post('/requests/create', 'RequestPrintController@add')->name('createReque
 
 Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow');
 
+Route::post('/requests/{id}/comments', 'CommentController@addComment')->name('addComment');
+
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
 Route::get('/printers', 'PrinterController@list')->name('printers');
