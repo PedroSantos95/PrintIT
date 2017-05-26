@@ -25,7 +25,7 @@
 				<td style="text-align: center; padding-top: 15px;">NO</td>
 				@endif
 				@if($request->status == 1)
-				<td style="text-align: center; padding-top: 15px;">Refused</td>
+				<td style="text-align: center; padding-top: 15px;">Completed</td>
 				@else
 				<td style="text-align: center; padding-top: 15px;">Waiting</td>
 				@endif					

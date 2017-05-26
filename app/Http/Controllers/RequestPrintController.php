@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Comments;
+use Carbon\Carbon;
 use App\RequestPrint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;    
@@ -47,5 +48,28 @@ class RequestPrintController extends Controller
         $requestPrint->save();
 
         return redirect('requests');
+    }
+
+    public function complete($id)
+    {
+        $request = RequestPrint::findOrFail($id);
+        $request->status = 1;
+        $request->closed_user_id = \Auth::User()->id;
+        $request->closed_date = Carbon::now();
+        $request->save();
+
+        return redirect()->route('requestShow', ['id'=> $id]); 
+    }
+
+    public function refuse(Request $requestHttp, $id)
+    {
+        $request = RequestPrint::findOrFail($id);
+        $request->status = 1;
+        $request->closed_user_id = \Auth::User()->id;
+        $request->closed_date = Carbon::now();
+        $request->refused_reason = $requestHttp->get('refuseReason');
+        $request->save();
+
+        return redirect()->route('requestShow', ['id'=> $id]); 
     }
 }

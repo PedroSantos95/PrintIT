@@ -29,6 +29,10 @@ Route::get('/users/{id}', 'UserController@show')->name('userShow');
 
 Route::get('/requests/create', 'RequestPrintController@create')->name('addRequest');
 
+Route::post('completeRequest/{id}', ['as' => 'completeRequest', 'uses' => 'RequestPrintController@complete']);
+
+Route::post('refuseRequest/{id}', ['as' => 'refuseRequest', 'uses' => 'RequestPrintController@refuse']);
+
 Route::post('/requests/create', 'RequestPrintController@add')->name('createRequest');
 
 Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow');
