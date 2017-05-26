@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required|same:password',
             'phone' => 'nullable|digits:9',
+            'confirmation_code' => 'nullable',
             'profile_url' => 'nullable',
             'profile_photo' => 'nullable',
             'presentation' => 'nullable'
@@ -71,9 +72,6 @@ class RegisterController extends Controller
         $user->confirmed = 1;
         $user->confirmation_code = null;
         $user->save();
-        //Nao chega
-        Route::logout();
-        //Nao chega
         return view('welcome');
     }
 }
