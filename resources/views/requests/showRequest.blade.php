@@ -8,7 +8,6 @@
 			<div class="panel panel-default">
 				<div class="panel-heading"><center><h2><font face="verdana"><b>Show Request</b></font></h2></center></div>
 				<div class="panel-body">
-					<form class="form-horizontal" >
 						<div class="row" >
 							<div class="col-md-9 col-md-offset-2" >
 								<div class="form-group">
@@ -198,11 +197,12 @@
 								<div class="card">
 									<div class="card-block">
 
-										<form method="POST" action="{{route('addComment')}}">
-										{{csrf_field()}}
-
+										<form method="POST" action="{{url('createComment')}}">
+											{{csrf_field()}}
+											<input type="hidden" name="requestId" value="{{$request->id}}">
 											<div class="form-group">
-												<textarea name="body" rows="6" placeholder="Place your comment here." class="form-control" ></textarea>
+												<textarea name="body" id="body" rows="6" placeholder="Place your comment here." class="form-control" >
+												</textarea>
 											</div>
 
 											<div class="form-group">
@@ -220,7 +220,6 @@
 								</div>
 							</div>
 						</div>
-					</form>
 				</div>
 			</div>
 		</div>

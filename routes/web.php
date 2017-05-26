@@ -21,6 +21,8 @@ Route::get('/home', function(){
 
 Auth::routes();
 
+Route::post('createComment', ['as' => 'createComment', 'uses' => 'CommentController@addComment']);
+
 Route::get('/users', 'UserController@list')->name('users');
 
 Route::get('/users/{id}', 'UserController@show')->name('userShow');
@@ -30,8 +32,6 @@ Route::get('/requests/create', 'RequestPrintController@create')->name('addReques
 Route::post('/requests/create', 'RequestPrintController@add')->name('createRequest');
 
 Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow');
-
-Route::post('/requests/{id}/comments', 'CommentController@addComment')->name('addComment');
 
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
