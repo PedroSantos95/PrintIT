@@ -29,6 +29,10 @@ Route::get('/users/{id}', 'UserController@show')->name('userShow');
 
 Route::get('/requests/create', 'RequestPrintController@create')->name('addRequest');
 
+Route::get('/myRequests/{id}/delete', 'RequestPrintController@delete')->name('deleteRequest');
+
+Route::get('/myRequests/{id}/update', 'RequestPrintController@update')->name('updateRequest');
+
 Route::post('completeRequest/{id}', ['as' => 'completeRequest', 'uses' => 'RequestPrintController@complete']);
 
 Route::get('blockcomment/{id}/{commentId}', ['as' => 'blockComment', 'uses' => 'CommentController@block']);

@@ -80,7 +80,25 @@ class RequestPrintController extends Controller
 
     public function myRequests ()
     {
-        
-           return view('/myRequests');
+
+            $id = Auth::User()->id;
+            $myRequests = RequestPrint::where('owner_id', $id)->get();
+
+            return view('/myRequests',compact('myRequests'));
+    }
+
+    public function delete($id)
+    {
+        $request = RequestPrint::findOrFail($id);
+        $request->delete();
+
+         return view('/myRequests');
+    }
+
+    public function update($id)
+    {
+        $myRequests = RequestPrint::findOrFail($id);
+
+        return redirect()->route('updateRequest', ['id' => $id]);
     }
 }
