@@ -30,7 +30,7 @@
 				@else
 				<td style="text-align: center; padding-top: 15px;">Waiting</td>
 				@endif	
-
+				
 				@if($request->status == 0)
 				<td style="text-align: center; padding-top: 5px;">
 					<button id="btn2" style="width: 100px" type="button" class="btn btn-warning">
@@ -41,11 +41,14 @@
 						<a href="{{route('deleteRequest', ['id' => $request->id])}}"><span style="color: white;" >Delete</span></a>
 					</button>
 				</td>
-
-				
-
 				@endif
-
+				@if($request->status == 1)
+				<td style="text-align: center; padding-top: 5px;">
+					<button id="btn2" style="width: 100px" type="button" class="btn btn-success">
+						<a href="#" ><span style="color: white;" >Rate</span></a>
+					</button>	
+				</td>
+				@endif
 			</tr>
 			@endforeach
 		</tbody>
@@ -54,23 +57,23 @@
 
 @else
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 ">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div class="row" >
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 ">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row" >
 
-							<div class="form-group">
-								<label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
-							</div>
+						<div class="form-group">
+							<label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-	@endif
-	<br><br>
-	@extends('layouts.footer')
+@endif
+<br><br>
+@extends('layouts.footer')

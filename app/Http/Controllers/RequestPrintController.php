@@ -54,8 +54,8 @@ class RequestPrintController extends Controller
 
     public function complete(Request $request, $id)
     {
-        $id = $request->get('printer_id');
-        $printer = Printer::findOrFail($id);        
+        $idPrinter = $request->get('printer_id');
+        $printer = Printer::findOrFail($idPrinter);        
         $request = RequestPrint::findOrFail($id);
         $request->status = 1;
         $request->closed_user_id = \Auth::User()->id;
@@ -63,7 +63,7 @@ class RequestPrintController extends Controller
         $request->closed_date = Carbon::now();
         $request->save();
 
-        return redirect()->route('requestShow', ['id'=> $id]); 
+        return redirect()->route('requestShow', ['id'=> $request->id]); 
     }
 
     public function refuse(Request $requestHttp, $id)
@@ -98,7 +98,7 @@ class RequestPrintController extends Controller
     public function update($id)
     {
         $myRequests = RequestPrint::findOrFail($id);
-
+    
         return redirect()->route('updateRequest', ['id' => $id]);
     }
 }
