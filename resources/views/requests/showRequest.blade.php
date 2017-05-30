@@ -2,6 +2,7 @@
 
 @yield('content')
 <br><br><br>
+@if(Auth::check())
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 ">
@@ -179,28 +180,32 @@
 								@endif
 							</div>	
 							<div class="row">
-							<div class="col-md-12">
-								<div class="col-md-1">
-									<form method="POST" action="{{route('completeRequest', ['id' => $request->id])}}">
-										{{csrf_field()}}			
-										<div class="form-group" class="col-md-4">
-											<button type="submit" class="btn btn-success">Complete</button>
-										</div>
-									</form>
-								</div>
-								<div class="col-md-offset-7">
-									<form method="POST" action="{{route('refuseRequest', ['id' => $request->id])}}">
-										{{csrf_field()}}			
-										<div class="form-group" class="col-md-3">
-	
-											<button type="submit" class="btn btn-danger" style="width: 100px;" >Refuse</button>
+								<div class="col-md-12">
+									<div class="col-md-1">
+										@if($request->status == 0)
+										<form method="POST" action="{{route('completeRequest', ['id' => $request->id])}}">
+											{{csrf_field()}}			
+											<div class="form-group" class="col-md-4">
+												<button type="submit" class="btn btn-success">Complete</button>
+											</div>
+										</form>
+										@endif
+									</div>
+									<div class="col-md-offset-7">
+										@if($request->status == 0)
+										<form method="POST" action="{{route('refuseRequest', ['id' => $request->id])}}">
+											{{csrf_field()}}			
+											<div class="form-group" class="col-md-3">
 
-																					<div class="form-group">
-											<textarea name="refuseReason" id="refuseReason" rows="3" placeholder="Place your refuse reason here." class="form-control" ></textarea>
-										</div>
-										</div>
-									</form>
-								</div>
+												<button type="submit" class="btn btn-danger" style="width: 100px;" >Refuse</button>
+
+												<div class="form-group">
+													<textarea name="refuseReason" id="refuseReason" rows="3" placeholder="Place your refuse reason here." class="form-control" ></textarea>
+												</div>
+											</div>
+										</form>
+										@endif
+									</div>
 								</div>
 							</div>							
 							<hr>
@@ -249,5 +254,25 @@
 	</div>
 
 </div>
+@else
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 ">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row" >
+	
+							<div class="form-group">
+								<label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+@endif
 <br><br>
 @extends('layouts.footer')
