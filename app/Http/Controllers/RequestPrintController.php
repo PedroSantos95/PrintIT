@@ -77,4 +77,10 @@ class RequestPrintController extends Controller
 
         return redirect()->route('requestShow', ['id'=> $id]); 
     }
+
+    public function myRequests ()
+    {
+        
+           return view('/myRequests');
+    }
 }

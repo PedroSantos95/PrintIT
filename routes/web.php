@@ -51,6 +51,8 @@ Route::post('/requests/create', 'RequestPrintController@add')->name('createReque
 
 Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow');
 
+Route::get('/myRequests', 'RequestPrintController@myRequests')->name('myRequests');
+
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
 
 Route::get('/blockedComments', 'CommentController@listBlock')->name('showBlocked');

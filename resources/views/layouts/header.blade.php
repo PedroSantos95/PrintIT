@@ -68,7 +68,8 @@
                         <li class="dropdown">
                         <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{url('/printers')}}">Printers</a></li>
+                                <li><a href="#">My Requests</a></li>
+                                <li><a href="{{url('/printers')}}">All Printers</a></li>
                             </ul>
                         </li>
                         @endif
