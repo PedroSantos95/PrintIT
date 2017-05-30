@@ -20,4 +20,12 @@ class CommentController extends Controller
    		return redirect ()->route('requestShow', ['id'=> $request->get('request_id')]); 
 
    	}
+
+   	public function block($id, $commentId){
+   		$comment = Comments::FindOrFail($commentId);
+   		$comment->blocked = 1;
+   		$comment->save();
+
+   		 return redirect()->route('requestShow', ['id'=> $id]);
+   	}
 }

@@ -188,7 +188,7 @@
 											<div class="form-group" class="col-md-4">
 												<button type="submit" class="btn btn-success">Complete</button>
 
-												<div class="form-group">
+												<div style="padding-top: 10px" class="form-group">
 
 													<select style="padding-top: 5px" name="printer_id">
 														<option value="">Select a Printer</option>
@@ -209,7 +209,7 @@
 
 												<button type="submit" class="btn btn-danger" style="width: 100px;" >Refuse</button>
 
-												<div class="form-group">
+												<div style="padding-top: 5px" class="form-group">
 													<textarea name="refuseReason" id="refuseReason" rows="3" placeholder="Place your refuse reason here." class="form-control" ></textarea>
 												</div>
 											</div>
@@ -217,18 +217,43 @@
 										@endif
 									</div>
 								</div>
-							</div>							
+							</div>	
 							<hr>
 							<div class="comments">
 								<ul class="list-group">
 									@foreach ($comments as $comment)
+									@if($comment->parent_id == null)
+									@if($comment->blocked == 0)
 									<li class="list-group-item">
 										<strong>
-											{{$comment->created_at->diffForHumans()}}
+											{{$comment->user_id}} - {{$comment->created_at->diffForHumans()}}
 										</strong>
 										{{$comment->comment}}
+										<div>
+											<!--<button type="submit" class="btn btn-danger btn-xs" style="text-align: right;"><small>Block</small></button>-->
+											<a href="{{route('blockComment', ['id' => $request->id, 'commentId' => $comment->id ])}}" style="color: red"><b>Block</b></a>
+											</div>
+											@foreach ($comments as $comment2)
+
+									@if($comment2->blocked == 0)
+									@if($comment2->parent_id == $comment->id)
+									<li class="list-group-item">
+										<strong>
+											{{$comment2->user_id}} - {{$comment2->created_at->diffForHumans()}}
+										</strong>
+
+										{{$comment2->comment}}
+
 									</li>
 									<br>
+									@endif
+									
+									@endif
+									@endforeach
+									</li>
+									<br>
+									@endif
+									@endif
 									@endforeach
 								</ul>
 							</div>

@@ -31,6 +31,8 @@ Route::get('/requests/create', 'RequestPrintController@create')->name('addReques
 
 Route::post('completeRequest/{id}', ['as' => 'completeRequest', 'uses' => 'RequestPrintController@complete']);
 
+Route::get('blockcomment/{id}/{commentId}', ['as' => 'blockComment', 'uses' => 'CommentController@block']);
+
 Route::post('refuseRequest/{id}', ['as' => 'refuseRequest', 'uses' => 'RequestPrintController@refuse']);
 
 Route::post('/requests/create', 'RequestPrintController@add')->name('createRequest');
