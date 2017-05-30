@@ -26,4 +26,41 @@ class UserController extends Controller
     	$user = User::findOrFail($id);
     	return view('users.show', compact('user'));
     }
+
+    public function block($id)
+    {
+        $user = User::findOrFail($id);
+        $user->blocked = 1;
+        $user->save();
+
+        return redirect()->route('userShow', compact('user')); 
+    }
+
+     public function unblock($id)
+    {
+        $user = User::findOrFail($id);
+        $user->blocked = 0;
+        $user->save();
+
+        return redirect()->route('userShow', compact('user')); 
+    }
+
+    public function listBlock()
+    {
+        $users = DB::table('users')->paginate(500);
+
+        return view('blockedUsers', compact('users'));
+
+    }
+
+    public function unblockList($id)
+    {
+        $user = User::findOrFail($id);
+        $user->blocked = 0;
+        $user->save();
+
+        return redirect()->route('blockedUsers', compact('user')); 
+    }
+
+    
 }

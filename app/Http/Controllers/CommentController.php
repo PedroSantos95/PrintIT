@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Comments;
 use App\RequestPrint;
 use Illuminate\Http\Request;
@@ -27,5 +28,20 @@ class CommentController extends Controller
    		$comment->save();
 
    		 return redirect()->route('requestShow', ['id'=> $id]);
+   	}
+
+   	public function listBlock(){
+
+   		$comments = DB::table('comments')->paginate(500);
+
+        return view('blockedComments', compact('comments'));
+   	}
+
+   	public function unblock($id){
+   		$comment = Comments::FindOrFail($id);
+   		$comment->blocked = 0;
+   		$comment->save();
+
+   		return redirect()->route('showBlocked');
    	}
 }

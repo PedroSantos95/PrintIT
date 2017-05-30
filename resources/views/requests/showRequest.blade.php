@@ -232,27 +232,27 @@
 										<div>
 											<!--<button type="submit" class="btn btn-danger btn-xs" style="text-align: right;"><small>Block</small></button>-->
 											<a href="{{route('blockComment', ['id' => $request->id, 'commentId' => $comment->id ])}}" style="color: red"><b>Block</b></a>
+										</div>
+										@endif
+										@foreach ($comments as $comment2)
+										@if($comment2->parent_id == $comment->id)						
+										@if($comment2->blocked == 0)
+										<li class="list-group-item">
+											<strong>
+												{{$comment2->user_id}} - {{$comment2->created_at->diffForHumans()}}
+											</strong>
+											{{$comment2->comment}}
+											<div>
+												<!--<button type="submit" class="btn btn-danger btn-xs" style="text-align: right;"><small>Block</small></button>-->
+												<a href="{{route('blockComment', ['id' => $request->id, 'commentId' => $comment->id ])}}" style="color: red"><b>Block</b></a>
 											</div>
-											@foreach ($comments as $comment2)
-
-									@if($comment2->blocked == 0)
-									@if($comment2->parent_id == $comment->id)
-									<li class="list-group-item">
-										<strong>
-											{{$comment2->user_id}} - {{$comment2->created_at->diffForHumans()}}
-										</strong>
-
-										{{$comment2->comment}}
-
+										</li>
+										<br>
+										@endif
+										@endif
+										@endforeach
 									</li>
 									<br>
-									@endif
-									
-									@endif
-									@endforeach
-									</li>
-									<br>
-									@endif
 									@endif
 									@endforeach
 								</ul>

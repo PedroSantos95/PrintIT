@@ -73,6 +73,15 @@
                             </ul>
                         </li>
                         @endif
+                        @if(Auth::check())
+                        <li class="dropdown">
+                        <a class="dropdown-toggle menu-icon" href="#">Administration <i class="fa fa-caret-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('/blockedComments')}}">Blocked Comments</a></li>
+                                <li><a href="{{url('/blockedUsers')}}">Blocked User</a></li>
+                            </ul>
+                        </li>
+                        @endif
                         @if(!Auth::check())
                         <li>
                             <a data-hash href="{{route('login')}}"><i class="fa fa-laptop"></i>Login</a>

@@ -33,6 +33,14 @@ Route::post('completeRequest/{id}', ['as' => 'completeRequest', 'uses' => 'Reque
 
 Route::get('blockcomment/{id}/{commentId}', ['as' => 'blockComment', 'uses' => 'CommentController@block']);
 
+Route::post('blockedComments/{id}/unblock', ['as' => 'unblockComment', 'uses' => 'CommentController@unblock']);
+
+Route::post('/users/{id}/block', ['as' => 'blockUser', 'uses' => 'UserController@block']);
+
+Route::post('/users/{id}/unblock', ['as' => 'unblockUser', 'uses' => 'UserController@unblock']);
+
+Route::post('/users/{id}/unblock', ['as' => 'unblockUserList', 'uses' => 'UserController@unblockList']);
+
 Route::post('refuseRequest/{id}', ['as' => 'refuseRequest', 'uses' => 'RequestPrintController@refuse']);
 
 Route::post('/requests/create', 'RequestPrintController@add')->name('createRequest');
@@ -40,6 +48,10 @@ Route::post('/requests/create', 'RequestPrintController@add')->name('createReque
 Route::get('/requests/{id}', 'RequestPrintController@show')->name('requestShow');
 
 Route::get('/requests', 'RequestPrintController@list')->name('requests');
+
+Route::get('/blockedComments', 'CommentController@listBlock')->name('showBlocked');
+
+Route::get('/blockedUsers', 'UserController@listBlock')->name('blockedUsers');
 
 Route::get('/printers', 'PrinterController@list')->name('printers');
 
