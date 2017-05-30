@@ -60,11 +60,6 @@
                             <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
                         </li>
                         @if(Auth::check())
-                        <li>
-                            <a data-hash href="{{route('home')}}"><i class="fa fa-download"></i>Dashboard</a>
-                        </li>
-                        @endif
-                        @if(Auth::check())
                         <li class="dropdown">
                         <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
