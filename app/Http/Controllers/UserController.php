@@ -58,7 +58,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->blocked = 0;
         $user->save();
-
+        
         return redirect()->route('blockedUsers', compact('user')); 
     }
 

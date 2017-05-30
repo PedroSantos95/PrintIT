@@ -68,7 +68,6 @@
                         <li class="dropdown">
                         <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{url('/requests')}}">Requests</a></li>
                                 <li><a href="{{url('/printers')}}">Printers</a></li>
                             </ul>
                         </li>
@@ -77,6 +76,7 @@
                         <li class="dropdown">
                         <a class="dropdown-toggle menu-icon" href="#">Administration <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
+                                <li><a href="{{url('/requests')}}">All Requests</a></li>
                                 <li><a href="{{url('/blockedComments')}}">Blocked Comments</a></li>
                                 <li><a href="{{url('/blockedUsers')}}">Blocked User</a></li>
                                 <li><a href="{{url('/adminPremissions')}}">Give Administrator Premissions</a></li>
