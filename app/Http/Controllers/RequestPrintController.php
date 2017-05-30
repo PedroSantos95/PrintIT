@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Comments;
+use App\Printer;
 use Carbon\Carbon;
 use App\RequestPrint;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class RequestPrintController extends Controller
     {
         $request = RequestPrint::findOrFail($id);
         $comments = Comments::where('request_id', $request->id)->get();
-        return view('requests.showRequest', compact('request', 'comments'));
+        $printers = Printer::all();
+        return view('requests.showRequest', compact('request', 'comments', 'printers'));
     }
 
     public function create()
@@ -50,11 +52,14 @@ class RequestPrintController extends Controller
         return redirect('requests');
     }
 
-    public function complete($id)
+    public function complete(Request $request, $id)
     {
+        $id = $request->get('printer_id');
+        $printer = Printer::findOrFail($id);        
         $request = RequestPrint::findOrFail($id);
         $request->status = 1;
         $request->closed_user_id = \Auth::User()->id;
+        $request->printer_id = $printer->id;
         $request->closed_date = Carbon::now();
         $request->save();
 

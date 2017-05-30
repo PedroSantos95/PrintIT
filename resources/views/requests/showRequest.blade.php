@@ -187,6 +187,16 @@
 											{{csrf_field()}}			
 											<div class="form-group" class="col-md-4">
 												<button type="submit" class="btn btn-success">Complete</button>
+
+												<div class="form-group">
+
+													<select style="padding-top: 5px" name="printer_id">
+														<option value="">Select a Printer</option>
+														@foreach($printers as $printer)
+														<option value={{$printer->id}}>{{$printer->name}}</option>
+														@endforeach
+													</select>
+												</div>
 											</div>
 										</form>
 										@endif
@@ -262,13 +272,13 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div class="row" >
-	
-							<div class="form-group">
-								<label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
-							</div>
+
+						<div class="form-group">
+							<label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 </div>
