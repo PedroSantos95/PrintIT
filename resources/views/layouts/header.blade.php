@@ -56,12 +56,12 @@
                         <li>
                             <a data-hash href="{{route('welcome')}}"><i class="fa fa-home"></i>Home</a>
                         </li>
-                                                <li>
+                        <li>
                             <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
                         </li>
                         @if(Auth::check())
                         <li class="dropdown">
-                        <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
+                            <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">My Requests</a></li>
                                 <li><a href="{{url('/printers')}}">All Printers</a></li>
@@ -70,7 +70,7 @@
                         @endif
                         @if(Auth::check())
                         <li class="dropdown">
-                        <a class="dropdown-toggle menu-icon" href="#">Administration <i class="fa fa-caret-down"></i></a>
+                            <a class="dropdown-toggle menu-icon" href="#">Administration<i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{url('/requests')}}">All Requests</a></li>
                                 <li><a href="{{url('/blockedComments')}}">Blocked Comments</a></li>
