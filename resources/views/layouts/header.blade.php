@@ -79,6 +79,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{url('/blockedComments')}}">Blocked Comments</a></li>
                                 <li><a href="{{url('/blockedUsers')}}">Blocked User</a></li>
+                                <li><a href="{{url('/adminPremissions')}}">Give Administrator Premissions</a></li>
                             </ul>
                         </li>
                         @endif

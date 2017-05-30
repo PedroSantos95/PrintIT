@@ -62,5 +62,30 @@ class UserController extends Controller
         return redirect()->route('blockedUsers', compact('user')); 
     }
 
+    public function giveAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->admin = 1;
+        $user->save();
+
+        return redirect()->route('listAdmin', compact('user')); 
+    }
+
+    public function removeAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->admin = 0;
+        $user->save();
+
+        return redirect()->route('listAdmin', compact('user')); 
+    }
+
+    public function listADmin()
+    {
+         $users = DB::table('users')->paginate(500);
+
+        return view('giveAdmin', compact('users'));
+
+    }
     
 }

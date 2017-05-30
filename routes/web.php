@@ -35,6 +35,10 @@ Route::get('blockcomment/{id}/{commentId}', ['as' => 'blockComment', 'uses' => '
 
 Route::post('blockedComments/{id}/unblock', ['as' => 'unblockComment', 'uses' => 'CommentController@unblock']);
 
+Route::post('/adminPremissions/{id}/remove', ['as' => 'removeAdmin', 'uses' => 'UserController@removeAdmin']);
+
+Route::post('/adminPremissions/{id}/give', ['as' => 'giveAdmin', 'uses' => 'UserController@giveAdmin']);
+
 Route::post('/users/{id}/block', ['as' => 'blockUser', 'uses' => 'UserController@block']);
 
 Route::post('/users/{id}/unblock', ['as' => 'unblockUser', 'uses' => 'UserController@unblock']);
@@ -52,6 +56,8 @@ Route::get('/requests', 'RequestPrintController@list')->name('requests');
 Route::get('/blockedComments', 'CommentController@listBlock')->name('showBlocked');
 
 Route::get('/blockedUsers', 'UserController@listBlock')->name('blockedUsers');
+
+Route::get('/adminPremissions', 'UserController@listAdmin')->name('listAdmin');
 
 Route::get('/printers', 'PrinterController@list')->name('printers');
 
