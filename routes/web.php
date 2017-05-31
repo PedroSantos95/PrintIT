@@ -18,11 +18,15 @@ Route::get('/', function () {
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/waiting', function(){return view('waiting');})->name('waiting');
+
 Auth::routes();
 
 Route::post('createComment', ['as' => 'createComment', 'uses' => 'CommentController@addComment']);
 
 Route::get('/users', 'UserController@list')->name('users');
+
+Route::get('/departments', 'DepartmentController@list')->name('departments');
 
 Route::get('/users/{id}', 'UserController@show')->name('userShow');
 

@@ -59,6 +59,10 @@
                         <li>
                             <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
                         </li>
+                        <li>
+                            <a data-hash href="{{route('departments')}}"><i class="fa fa-scissors"></i>Departments</a>
+                        </li>
+
                         @if(Auth::check())
                         <li class="dropdown">
                             <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>

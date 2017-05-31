@@ -23,7 +23,7 @@
 							<div class="form-group">
 								<label for="name" style="text-align: right" class="col-md-4 control-label"><b>Request ID</b></label>
 								<div  class="col-md-8">
-									{{$request->id}}
+									{{$departments->id}}
 								</div>
 							</div>
 							<div class="form-group">

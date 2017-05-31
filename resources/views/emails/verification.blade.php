@@ -1,12 +1,12 @@
 @component('mail::message')
-# Account Verification
+# Account Confirmation
 
-Please click the link bellow to verify your account
+Please click the link bellow to verify your account to get full access to our website!
 
 @component('mail::button', ['url' => $url])
-Button Text
+Confirm Email
 @endcomponent
 
 Thanks,<br>
-{{ config('app.name') }}
+The PrintIT Team
 @endcomponent
