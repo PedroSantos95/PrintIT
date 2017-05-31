@@ -3,6 +3,9 @@
 	function replyComment(parent){
 		$('#replyParentId').val(parent.id);
 		$('#showParentId').html(parent.comment);
+		document.getElementById('showParentId').style.display = "block";
+		document.getElementById('showParentTitle').style.display = "block";
+		document.getElementById('showParentTitle').value = 'Replaying To: ' + parent.id;
 		window.location.href = "#showParentId";
 	}
 </script>
@@ -228,69 +231,71 @@
 						</div>
 					</div>
 					<ul class="list-group">
-									@foreach ($comments as $comment)
-									@if($comment->parent_id == null)
-									@if($comment->blocked == 0)
-									<li class="list-group-item">
-										<strong>
-											{{$comment->user_id}} - {{$comment->created_at->diffForHumans()}}
-										</strong>
-										{{$comment->comment}}
-										<div>
-											<!---->
-											<a href="{{route('blockComment', ['id' => $request->id, 'commentId' => $comment->id ])}}" style="color: red"><b>Block</b></a>
-											<a onclick="replyComment({{$comment}})" style="text-align: right;float:right; color:blue;"><b>Reply</b></a>
-											<!--<a href="" style="color: fuchsia;float:right;"><b>Reply</b></a>-->
-										</div>
-										@endif
-										@foreach ($comments as $comment2)
-										@if($comment2->parent_id == $comment->id)						
-										@if($comment2->blocked == 0)
-										<li class="list-group-item" style="margin-left: 20px" >
-											<strong>
-												{{$comment2->user_id}} - {{$comment2->created_at->diffForHumans()}}
-											</strong>
-											{{$comment2->comment}}
-											<div>
-												<!--<button type="submit" class="btn btn-danger btn-xs" style="text-align: right;"><small>Block</small></button>-->
-												<a href="{{route('blockComment', ['id' => $request->id, 'commentId' => $comment->id ])}}" style="color: red"><b>Block</b></a>
-												<a onclick="replyComment({{$comment}})" style="text-align: right;float:right; color:blue;"><b>Reply</b></a>
-											</div>
-										</li>
-										@endif
-										@endif
-										@endforeach
-									</li>
-									<br>
-									@endif
-									@endforeach
-								</ul>
-
-							<hr>
-							<div class="card">
-								<div class="card-block">
-									<span id="showParentId">
-									</span>
-									<form method="POST" action="{{url('createComment')}}">
-										{{csrf_field()}}
-										<input type="hidden" name="request_id" value="{{$request->id}}">
-										<input type="hidden" name="parent_id" id="replyParentId">
-										<div class="form-group">
-											<textarea name="body" id="body" rows="6" placeholder="Place your comment here." class="form-control" ></textarea>
-										</div>
-
-										<div class="form-group">
-											<button type="submit" class="btn btn-primary">Add Comment</button>
-										</div>
-									</form>
+						@foreach ($comments as $comment)
+						@if($comment->parent_id == null)
+						@if($comment->blocked == 0)
+						<li class="list-group-item">
+							<strong>
+								{{$comment->user_id}} - {{$comment->created_at->diffForHumans()}}
+							</strong>
+							{{$comment->comment}}
+							<div>
+								<!---->
+								<a href="{{route('blockComment', ['id' => $request->id, 'commentId' => $comment->id ])}}" style="color: red"><b>Block</b></a>
+								<a onclick="replyComment({{$comment}})" style="text-align: right;float:right; color:blue;"><b>Reply</b></a>
+								<!--<a href="" style="color: fuchsia;float:right;"><b>Reply</b></a>-->
+							</div>
+							@endif
+							@foreach ($comments as $comment2)
+							@if($comment2->parent_id == $comment->id)						
+							@if($comment2->blocked == 0)
+							<li class="list-group-item" style="margin-left: 20px" >
+								<strong>
+									{{$comment2->user_id}} - {{$comment2->created_at->diffForHumans()}}
+								</strong>
+								{{$comment2->comment}}
+								<div>
+									<!--<button type="submit" class="btn btn-danger btn-xs" style="text-align: right;"><small>Block</small></button>-->
+									<a href="{{route('blockComment', ['id' => $request->id, 'commentId' => $comment2->id ])}}" style="color: red"><b>Block</b></a>
+									<a onclick="replyComment({{$comment}})" style="text-align: right;float:right; color:blue;"><b>Reply</b></a>
 								</div>
-							</div>
+							</li>
+							@endif
+							@endif
 
-							<div class="pull-right col-md-2	" style="margin-right: 120px">
-								<button type="button" class="btn btn-primary" style="width: 200%">
-									<a href="{{url('/requests')}}"><span style="color:white;" >Back</span></a>
-								</button>
-							</div>
+							@endforeach
+						</li>
+						<br>
+						@endif
+						@endforeach
+					</ul>
+					<hr>
+					<div class="card">
+						<div class="card-block">
+							<span id="showParentTitle" style="display: none;"><b>Replaying To:</b></span>
+						<li class="list-group-item" id="showParentId" style="display: none;">
+						</li>
+							<br>
+							<form method="POST" action="{{url('createComment')}}">
+								{{csrf_field()}}
+								<input type="hidden" name="request_id" value="{{$request->id}}">
+								<input type="hidden" name="parent_id" id="replyParentId">
+								<div class="form-group">
+									<textarea name="body" id="body" rows="6" placeholder="Place your comment here." class="form-control" ></textarea>
+								</div>
+
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary">Add Comment</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="pull-right col-md-2	" style="margin-right: 120px">
+						<button type="button" class="btn btn-primary" style="width: 200%">
+							<a href="{{url('/requests')}}"><span style="color:white;" >Back</span></a>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -26,10 +26,11 @@ class CommentController extends Controller
    	}
 
    	public function block($id, $commentId){
+
    		$comment = Comments::FindOrFail($commentId);
    		$comment->blocked = 1;
    		$comment->save();
-
+         $this->blockChilds($comment);
    		 return redirect()->route('requestShow', ['id'=> $id]);
    	}
 
@@ -47,4 +48,13 @@ class CommentController extends Controller
 
    		return redirect()->route('showBlocked');
    	}
+
+      public function blockChilds($comment){
+         $comments = Comments::where('parent_id',$comment->id)->get();
+
+         foreach($comments as $comment){
+            $comment->blocked = 1;
+            $comment->save();
+         }
+      }
 }
