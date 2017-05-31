@@ -97,8 +97,24 @@ class RequestPrintController extends Controller
 
     public function update($id)
     {
+        
         $myRequests = RequestPrint::findOrFail($id);
-    
-        return redirect()->route('updateRequest', ['id' => $id]);
+        
+        return view('editRequest',compact('myRequests'));
+    }
+
+    public function store(Request $request, $id)
+    {
+        $myRequests = RequestPrint::findOrFail($id);        
+        $myRequests->quantity = $request->get('quantity');
+        $myRequests->paper_size = $request->get('paperSize');
+        $myRequests->paper_type = $request->get('paperType');
+        $myRequests->colored = $request->get('colored');
+        $myRequests->stapled = $request->get('stapled');
+        $myRequests->front_back = $request->get('frontback');
+        $myRequests->description = $request->get('description');
+        $myRequests->save();
+
+        return redirect()->route('myRequests');
     }
 }

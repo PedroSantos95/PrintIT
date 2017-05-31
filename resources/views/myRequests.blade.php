@@ -34,7 +34,7 @@
 				@if($request->status == 0)
 				<td style="text-align: center; padding-top: 5px;">
 					<button id="btn2" style="width: 100px" type="button" class="btn btn-warning">
-						<a href="{{route('updateRequest', ['id' => $request->id])}}" ><span style="color: white;" >Edit</span></a>
+						<a href="{{route('updateRequest', ['id' => $request->id])}}" ><span style="color: white;">Edit</span></a>
 					</button>	
 					&nbsp
 					<button id="btn2" type="button" style="width: 100px" class="btn btn-danger">

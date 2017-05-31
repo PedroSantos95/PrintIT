@@ -33,6 +33,8 @@ Route::get('/myRequests/{id}/delete', 'RequestPrintController@delete')->name('de
 
 Route::get('/myRequests/{id}/update', 'RequestPrintController@update')->name('updateRequest');
 
+Route::post('/myRequests/{id}/update', 'RequestPrintController@store')->name('storeRequest');
+
 Route::post('completeRequest/{id}', ['as' => 'completeRequest', 'uses' => 'RequestPrintController@complete']);
 
 Route::get('blockcomment/{id}/{commentId}', ['as' => 'blockComment', 'uses' => 'CommentController@block']);
