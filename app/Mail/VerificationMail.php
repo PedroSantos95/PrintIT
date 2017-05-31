@@ -31,6 +31,6 @@ class VerificationMail extends Mailable
     public function build()
     {
         $url=url('/confirmEmail/'. $this->user->confirmation_code);
-        return $this->markdown('emails.verification', compact('url'));
+        return $this->markdown('emails.verification', compact('url'))->subject('Verification Email');
     }
 }
