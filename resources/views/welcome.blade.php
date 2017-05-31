@@ -75,7 +75,7 @@
         <div class="col-sm-3">
             <i class="fa fa-building v-icon icn-holder"></i>
             <div class="v-counter">
-                <div class="count-number" data-from="0" data-to="102" data-speed="1500" data-refresh-interval="25"></div>
+                <div class="count-number" data-from="0" data-to="{{$totalPrints}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
                 <h6 class="v-counter-text">All time printed copies</h6>
             </div>
@@ -83,17 +83,17 @@
         <div class="col-sm-3">
             <i class="fa fa-flash v-icon icn-holder"></i>
             <div class="v-counter">
-                <div class="count-number" data-from="0" data-to="99" data-speed="1500" data-refresh-interval="25"></div>
+                <div class="count-number" data-from="0" data-to="{{$coloredPrints}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
-                <h6 class="v-counter-text">Montly Average Copying per Day</h6>
+                <h6 class="v-counter-text">All time printed Colored Copies</h6>
             </div>
         </div>
         <div class="col-sm-3">
             <i class="fa fa-laptop v-icon icn-holder"></i>
             <div class="v-counter">
-                <div class="count-number" data-from="0" data-to="245" data-speed="1500" data-refresh-interval="25"></div>
+                <div class="count-number" data-from="0" data-to="{{$blackPrints}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
-                <h6 class="v-counter-text">Copies Printed Today</h6>
+                <h6 class="v-counter-text">All time printed Black n White</h6>
             </div>
         </div>
 
@@ -102,7 +102,7 @@
             <div class="v-counter">
                 <div class="count-number" data-from="0" data-to="29" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
-                <h6 class="v-counter-text">Registed users</h6>
+                <h6 class="v-counter-text">Printed Last Month</h6>
             </div>
         </div>
     </div>

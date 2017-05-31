@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RequestPrint;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
     }
 
     /**
@@ -23,6 +24,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $coloredPrints = $this->getColoredPrints();
+        $blackPrints = $this->getBlackPrints();
+        $totalPrints = $coloredPrints + $blackPrints;
+        return view('welcome', compact('coloredPrints','blackPrints','totalPrints'));
     }
+
+    public function getColoredPrints()
+    {
+        $requests = RequestPrint::where('status',1)->where('colored', 1)->get();
+        
+        $counter = 0;
+        foreach ($requests as $request) {
+            $counter+=$request->quantity;
+        }
+
+        return $counter;
+    }
+
+    public function getBlackPrints()
+    {
+        $requests = RequestPrint::where('status',1)->where('colored', 0)->get();
+        
+        $counter = 0;
+        foreach ($requests as $request) {
+            $counter+=$request->quantity;
+        }
+
+        return $counter;
+    }
+
 }

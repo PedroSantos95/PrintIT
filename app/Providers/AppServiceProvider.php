@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\RequestPrint;
 
 class AppServiceProvider extends ServiceProvider
 {

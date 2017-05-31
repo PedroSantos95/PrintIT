@@ -42,7 +42,7 @@
         <div class="container">
             <!--Site Logo-->
             <div class="logo" data-sticky-logo="{{asset('img/logo-white.png')}}" data-normal-logo="{{asset('img/logo-white.png')}}">
-                <a href="{{route('welcome')}}">
+                <a href="{{route('home')}}">
                     <img alt="Venue" src="{{asset('img/logo.png')}}" data-logo-height="35">
                 </a>
             </div>
@@ -54,7 +54,7 @@
                 <nav class="nav-main mega-menu one-page-menu">
                     <ul class="nav nav-pills nav-main" id="mainMenu">
                         <li>
-                            <a data-hash href="{{route('welcome')}}"><i class="fa fa-home"></i>Home</a>
+                            <a data-hash href="{{route('home')}}"><i class="fa fa-home"></i>Home</a>
                         </li>
                         <li>
                             <a data-hash href="{{route('users')}}"><i class="fa fa-location-arrow"></i>Users</a>
