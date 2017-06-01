@@ -100,9 +100,9 @@
         <div class="col-sm-3">
             <i class="fa fa-umbrella v-icon icn-holder"></i>
             <div class="v-counter">
-                <div class="count-number" data-from="0" data-to="29" data-speed="1500" data-refresh-interval="25"></div>
+                <div class="count-number" data-from="0" data-to="{{$usersCount}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
-                <h6 class="v-counter-text">Printed Last Month</h6>
+                <h6 class="v-counter-text">Total Users</h6>
             </div>
         </div>
     </div>

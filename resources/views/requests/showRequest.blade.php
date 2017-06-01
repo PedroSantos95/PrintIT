@@ -23,7 +23,7 @@
 							<div class="form-group">
 								<label for="name" style="text-align: right" class="col-md-4 control-label"><b>Request ID</b></label>
 								<div  class="col-md-8">
-									{{$departments->id}}
+									{{$request->id}}
 								</div>
 							</div>
 							<div class="form-group">
@@ -161,7 +161,7 @@
 							<div class="form-group">
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Owner ID</b></label>
 								<div  class="col-md-8">
-									{{$request->owner_id}}
+									{{$request->user->name}}
 								</div>
 							</div>
 							<div class="form-group">
@@ -180,7 +180,7 @@
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Closed User ID</b></label>
 								@if($request->closed_user_id)
 								<div  class="col-md-8">
-									{{$request->closed_user_id}}
+									{{$request->user->name}}
 								</div>
 								@else
 								<div  class="col-md-8">
@@ -199,7 +199,7 @@
 
 												<div style="padding-top: 10px" class="form-group">
 
-													<select style="padding-top: 5px" name="printer_id">
+													<select  name="printer_id">
 														<option value="">Select a Printer</option>
 														@foreach($printers as $printer)
 														<option value={{$printer->id}}>{{$printer->name}}</option>

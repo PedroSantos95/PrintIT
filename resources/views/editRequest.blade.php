@@ -17,7 +17,7 @@
                             <br>
                             <label for="id" class="col-md-4 control-label">Request ID</label>
                             <div style="margin-top: 5px" class="col-md-5">
-                            <span>{{$myRequests->id}}</span>
+                                <span>{{$myRequests->id}}</span>
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
@@ -45,21 +45,35 @@
                             <br>
                             <label for="colored" class="col-md-4 control-label">Colored</label>
                             <div class="col-md-5">
-                                <input id="colored" type="text" class="form-control" name="colored" value="{{$myRequests->colored}}" required autofocus>
+                                <div style="padding-top: 7px; " class="col-md-5">
+                                    <select  name="colored">
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('stapled') ? ' has-error' : '' }}">
-                            <br>
-                            <label for="stapled" class="col-md-4 control-label">Stapled</label>
-                            <div class="col-md-5">
-                                <input id="stapled" type="text" class="form-control" name="stapled" value="{{$myRequests->stapled}}" required autofocus>
+                            <div class="form-group{{ $errors->has('stapled') ? ' has-error' : '' }}">
+                                <br>
+                                <label for="stapled" class="col-md-4 control-label">Stapled</label>
+                                <div class="col-md-5">
+                                    <div style="padding-top: 7px; " class="col-md-5">
+                                        <select  name="stapled">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('frontback') ? ' has-error' : '' }}">
-                            <br>
-                            <label for="frontback" class="col-md-4 control-label">Front Back</label>
-                            <div class="col-md-5">
-                                <input id="frontback" type="text" class="form-control" name="frontback" value="{{$myRequests->front_back}}" required autofocus>
+                            <div class="form-group{{ $errors->has('frontback') ? ' has-error' : '' }}">
+                                <br>
+                                <label for="frontback" class="col-md-4 control-label">Front Back</label>
+                                <div class="col-md-5">
+                                 <div style="padding-top: 7px; " class="col-md-5">
+                                    <select  name="frontback">
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
@@ -92,13 +106,13 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row" >
-    
-                            <div class="form-group">
-                                <label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
-                            </div>
+
+                        <div class="form-group">
+                            <label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>

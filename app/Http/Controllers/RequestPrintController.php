@@ -14,10 +14,9 @@ class RequestPrintController extends Controller
 {
     public function list()
     {    
-
         $requests = DB::table('requests')->paginate(20);
 
-        return view('requests', compact('requests'));
+        return view('requests', compact('requests', 'user'));
     }
 
      public function show($id)
@@ -25,6 +24,7 @@ class RequestPrintController extends Controller
         $request = RequestPrint::findOrFail($id);
         $comments = Comments::where('request_id', $request->id)->get();
         $printers = Printer::all();
+
         return view('requests.showRequest', compact('request', 'comments', 'printers'));
     }
 
