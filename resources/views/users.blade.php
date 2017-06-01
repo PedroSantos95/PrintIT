@@ -19,7 +19,7 @@
 			@foreach($users as $index => $user)
 			<tr>
 				@if($user->profile_photo)
-				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset('img/profiles/'.$user->profile_photo)}}" /></td>
+				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset( 'img/profiles/'. $user->profile_photo)}}" /></td>
 				@else
 				<td style="text-align: center"><img style="width: 80px; height: 80px; border: 2px solid grey;" src="{{ asset('img/profiles/unknowmale.png')}}" /></td>
 				@endif

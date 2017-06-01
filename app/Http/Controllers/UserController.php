@@ -17,7 +17,6 @@ class UserController extends Controller
     public function list()
     {    
         $users = DB::table('users')->paginate(10);
-
     	return view('users', compact('users'));
     }
 
