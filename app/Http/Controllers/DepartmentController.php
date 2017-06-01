@@ -25,4 +25,6 @@ class DepartmentController extends Controller
 
         return $counter;
     }
+
+    
 }

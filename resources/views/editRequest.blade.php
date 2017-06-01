@@ -52,6 +52,7 @@
                                     </select>
                                 </div>
                             </div>
+                            </div>
                             <div class="form-group{{ $errors->has('stapled') ? ' has-error' : '' }}">
                                 <br>
                                 <label for="stapled" class="col-md-4 control-label">Stapled</label>
