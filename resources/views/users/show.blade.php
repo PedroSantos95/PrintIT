@@ -44,7 +44,7 @@
 								<div class="form-group">
 									<label for="presentation" style="text-align: center;" class="col-md-4 control-label"><b>Department</b></label>
 									<div style="padding-top: 7px" class="col-md-6">
-										{{$user->department_id}}          
+										{{$user->department->name}}          
 									</div>
 								</div>
 
