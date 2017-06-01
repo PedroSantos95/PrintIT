@@ -18,7 +18,7 @@ class RequestPrint extends Model
     	return $this->belongsTo('App\User', 'owner_id');
     }
 
-    public function comments()
+    public function comment()
     {
     	return $this->hasMany('App\Comments');
     }
