@@ -126,4 +126,9 @@ class RequestPrintController extends Controller
 
         return redirect()->route('myRequests');
     }
+
+    public function rating($id){
+
+        return view ('rating');
+    }
 }

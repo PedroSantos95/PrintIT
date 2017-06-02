@@ -42,6 +42,8 @@ Route::post('completeRequest/{id}', ['as' => 'completeRequest', 'uses' => 'Reque
 
 Route::get('blockcomment/{id}/{commentId}', ['as' => 'blockComment', 'uses' => 'CommentController@block']);
 
+Route::get('myRequests/{id}/rating', ['as' => 'rating', 'uses' => 'RequestPrintController@rating']);
+
 Route::post('blockedComments/{id}/unblock', ['as' => 'unblockComment', 'uses' => 'CommentController@unblock']);
 
 Route::post('/adminPremissions/{id}/remove', ['as' => 'removeAdmin', 'uses' => 'UserController@removeAdmin']);

@@ -45,7 +45,7 @@
 				@if($request->status == 1)
 				<td style="text-align: center; padding-top: 5px;">
 					<button id="btn2" style="width: 100px" type="button" class="btn btn-success">
-						<a href="#" ><span style="color: white;" >Rate</span></a>
+						<a href="{{route('rating', ['id' => $request->id])}}" ><span style="color: white;" >Rate</span></a>
 					</button>	
 				</td>
 				@endif
