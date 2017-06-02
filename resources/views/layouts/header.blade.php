@@ -62,23 +62,13 @@
                         <li>
                             <a data-hash href="{{route('departments')}}"><i class="fa fa-scissors"></i>Departments</a>
                         </li>
-
-                        @if(Auth::check())
-                        <li class="dropdown">
-                            <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{url('/myRequests')}}">My Requests</a></li>
-                                <li><a href="{{url('/requests/create')}}">Add Request</a></li>
-                                <li><a href="{{url('/printers')}}">All Printers</a></li>
-                            </ul>
-                        </li>
-                        @endif
                         @if(Auth::check())
                         @if(Auth::User()->admin == 1)
                         <li class="dropdown">
                             <a class="dropdown-toggle menu-icon" href="#">Administration<i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{url('/requests')}}">All Requests</a></li>
+                                <li><a href="{{url('/printers')}}">All Printers</a></li>
                                 <li><a href="{{url('/blockedComments')}}">Blocked Comments</a></li>
                                 <li><a href="{{url('/blockedUsers')}}">Blocked User</a></li>
                                 <li><a href="{{url('/adminPremissions')}}">Give Administrator Premissions</a></li>
@@ -97,19 +87,22 @@
                         </li>
                         @endif
                         @if(Auth::check())
-                        <li>
-                            <a data-hash href="{{route('logout')}}">Logout</a>
-                        </li>
-                        @endif
-
-                        
-                    </ul>
-                </nav>
-                <!--End Main Menu-->
-            </div>
-            <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
-                <i class="fa fa-bars"></i>
-            </button>
-        </div>
-    </header>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle menu-icon" href="#">{{Auth::User()->name}} <i class="fa fa-caret-down"></i></a>
+                            <ul class="dropdown-menu">
+                             <li><a href="{{url('/myRequests')}}">My Requests</a></li>
+                             <li><a href="{{url('/requests/create')}}">Add Request</a></li>
+                             <li><a href="{{route('logout')}}">Logout</a></li>
+                         </ul>
+                     </li>
+                     @endif                        
+                 </ul>
+             </nav>
+             <!--End Main Menu-->
+         </div>
+         <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+        </button>
+    </div>
+</header>
     <!--End Header-->
