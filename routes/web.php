@@ -54,7 +54,7 @@ Route::post('/adminPremissions/{id}/give', ['as' => 'giveAdmin', 'uses' => 'User
 
 Route::post('/users/{id}/block', ['as' => 'blockUser', 'uses' => 'UserController@block']);
 
-Route::post('/users/{id}/unblock', ['as' => 'unblockUser', 'uses' => 'UserController@unblock']);
+Route::post('/users/{id}/unblockUser', ['as' => 'unblockUser', 'uses' => 'UserController@unblock']);
 
 Route::post('/users/{id}/unblock', ['as' => 'unblockUserList', 'uses' => 'UserController@unblockList']);
 
