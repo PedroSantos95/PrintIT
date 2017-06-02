@@ -68,8 +68,8 @@ class RegisterController extends Controller
 
         }
 
-        //Nao chega
         $user->confirmed = 1;
+        $user->activated = 1;
         $user->confirmation_code = null;
         $user->save();
         return view('confirmation');

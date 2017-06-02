@@ -19,9 +19,9 @@
 			<tr>
 				<td style="text-align: center;">{{$department->id}}</td>
 				<td style="text-align: center;">{{$department->name}}</td>
-				<td style="text-align: center;"></td>
-				<td style="text-align: center;"></td>
-				<td style="text-align: center;"></td>
+				<td style="text-align: center;">{{$statisticsBlack[$index+1] + $statisticsColor[$index+1]}}</td>
+				<td style="text-align: center;">{{$statisticsBlack[$index+1]}}</td>
+				<td style="text-align: center;">{{$statisticsColor[$index+1]}}</td>
 			</tr>
 			@endforeach
 		</tbody>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Department;
 use App\RequestPrint;
 use App\User;
 use Illuminate\Http\Request;
@@ -29,7 +31,7 @@ class HomeController extends Controller
         $usersCount = $this->getTotalUsers();
         $blackPrints = $this->getBlackPrints();
         $totalPrints = $coloredPrints + $blackPrints;
-        return view('welcome', compact('coloredPrints','blackPrints','totalPrints', 'usersCount'));
+        return view('welcome', compact('coloredPrints','blackPrints','totalPrints', 'usersCount', 'departmentPrints'));
     }
 
     public function getColoredPrints()
@@ -55,6 +57,7 @@ class HomeController extends Controller
 
         return $counter;
     }
+
 
     public function getTotalUsers()
     {
