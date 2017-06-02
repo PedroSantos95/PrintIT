@@ -15,12 +15,14 @@ class RequestPrintController extends Controller
     
     public function __construct()
     {
-        $this->middleware('admin', ['only' => ['refuse', 'complete']]);
+         
     }
 
     public function list()
     {    
-        $requests = DB::table('requests')->paginate(20);
+
+        $requests = RequestPrint::paginate(20);
+
 
         return view('requests', compact('requests', 'user'));
     }

@@ -65,13 +65,26 @@
 							<div class="form-group">
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Paper Size</b></label>
 								<div  class="col-md-8">
-									{{$request->paper_size}}
+								@if($request->paper_size == 3)
+									A3
+								@endif
+								@if($request->paper_size == 4)
+									A4
+								@endif
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Paper Type</b></label>
 								<div  class="col-md-8">
-									{{$request->paper_type}}
+								@if($request->paper_type == 0)
+									Normal
+								@endif
+								@if($request->paper_type == 1)
+									Photography
+								@endif
+								@if($request->paper_type == 2)
+									Recycled
+								@endif
 								</div>
 							</div>
 							<div class="form-group">
