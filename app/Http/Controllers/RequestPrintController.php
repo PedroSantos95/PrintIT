@@ -127,8 +127,19 @@ class RequestPrintController extends Controller
         return redirect()->route('myRequests');
     }
 
-    public function rating($id){
+    public function rating($id)
+    {   
+        $request = RequestPrint::findOrFail($id);
 
-        return view ('rating');
+        return view ('rating', compact('request'));
+    }
+
+    public function setRating(Request $requestPost,$id)
+    {
+        $request = RequestPrint::findOrFail($id);
+        $request->satisfaction_grade = $requestPost->get('rating');
+          $request->save();
+
+        return redirect()->route('myRequests');
     }
 }

@@ -47,7 +47,7 @@
 							<div class="form-group">
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Description</b></label>
 								@if($request->description)
-								<div style="padding-top: 7px" class="col-md-8">
+								<div  class="col-md-8">
 									{{$request->description}}
 								</div>
 								@else
@@ -117,7 +117,21 @@
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Satisfaction Grade</b></label>
 								@if($request->satisfaction_grade)
 								<div  class="col-md-8">
-									{{$request->satisfaction_grade}}
+									@if($request->satisfaction_grade == 1)
+										1- Unsatistory
+									@endif
+									@if($request->satisfaction_grade == 2)
+										2- Average
+									@endif
+									@if($request->satisfaction_grade == 3)
+										3- Good
+									@endif
+									@if($request->satisfaction_grade == 4)
+										4- Very Good
+									@endif
+									@if($request->satisfaction_grade == 5)
+										5- Excellent
+									@endif
 								</div>
 								@else
 								<div class="col-md-8">
@@ -174,13 +188,13 @@
 								@endif
 							</div>
 							<div class="form-group">
-								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Owner ID</b></label>
+								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Owner</b></label>
 								<div  class="col-md-8">
 									{{$request->user->name}}
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Printer ID</b></label>
+								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Printer</b></label>
 								@if($request->printer_id)
 								<div  class="col-md-8">
 									{{$request->printer->name}}
@@ -192,7 +206,7 @@
 								@endif
 							</div>
 							<div class="form-group">
-								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Closed User ID</b></label>
+								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Close User</b></label>
 								@if($request->closed_user_id)
 								<div  class="col-md-8">
 									{{$request->user->name}}

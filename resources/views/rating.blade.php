@@ -4,7 +4,40 @@
 <br>
 @if(Auth::check())
 
-	
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="panel panel-default">
+                <div class="panel-heading"><center><h2><font face="verdana"><b>Rate Request</b></font></h2></center></div>
+                <div class="panel-body">                
+                    {{csrf_field()}}    
+                    <div class="row">
+                       <label for="id" style="text-align: right" class="col-md-4 control-label"><b>Request ID</b></label>
+                       <div >
+                        {{$request->id}}
+                    </div>
+                    <label for="rating" style="text-align: left" class="col-md-4 control-label"">Rating</label>
+                    <form method="POST" action="{{route('setRating', ['id' => $request->id])}}">
+                        {{csrf_field()}}            
+                        <div class="form-group" class="col-md-4">
+                            <button type="submit" class="btn btn-success">Complete</button>
+                            <div style="padding-top: 7px" class="col-md-5">
+                             <select  name="rating">
+                                <option value="0">Select an Option</option>
+                                <option value="1">1- Unsatistory</option>
+                                <option value="2">2- Average</option>
+                                <option value="3">3- Good</option>
+                                <option value="4">4- Very Good</option>
+                                <option value="5">5- Excellent</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 @else
 <div class="container">
@@ -13,13 +46,13 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row" >
-    
-                            <div class="form-group">
-                                <label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
-                            </div>
+
+                        <div class="form-group">
+                            <label for="name" style="text-align: right; margin-top: 10px" class="col-md-4 control-label"><b>You need to be logged in to view this page!</b></label>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>

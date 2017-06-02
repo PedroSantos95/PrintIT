@@ -43,11 +43,20 @@
 				</td>
 				@endif
 				@if($request->status == 1)
+				@if($request->satisfaction_grade == null)
 				<td style="text-align: center; padding-top: 5px;">
 					<button id="btn2" style="width: 100px" type="button" class="btn btn-success">
 						<a href="{{route('rating', ['id' => $request->id])}}" ><span style="color: white;" >Rate</span></a>
 					</button>	
 				</td>
+				@endif
+				@if($request->satisfaction_grade != null)
+				<td style="text-align: center; padding-top: 5px;">
+					<button id="btn2" style="width: 100px" type="button" class="btn btn-primary">
+						<a href="{{url('requests/'.$request->id)}}" ><span style="color: white;" >Show</span></a>
+					</button>	
+				</td>
+				@endif
 				@endif
 			</tr>
 			@endforeach
