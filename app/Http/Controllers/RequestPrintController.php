@@ -46,6 +46,7 @@ class RequestPrintController extends Controller
     {
         $requestPrint = new RequestPrint();
         $requestPrint->quantity = $request->get('quantity');
+        $requestPrint->due_date = $request->get('due_date');
         $requestPrint->paper_size = $request->get('paperSize');
         $requestPrint->paper_type = $request->get('paperType');
         $requestPrint->colored = $request->get('colored');
