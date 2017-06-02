@@ -1,34 +1,52 @@
-	@extends('layouts.header')
+@extends('layouts.header')
 
-	@yield('content')
-	<br><br><br>
-	
-<div align="center">
-	<table id="listUsers" class="table table-hover sortable" id="users-admin" style="widows: 80%;">
-		<thead class="thead-inverse">
-			<tr>
-				<th style="text-align: center" class="col-xs-1">Department ID</th>
-				<th style="text-align: center" class="col-xs-1">Department Name</th>
-				<th style="text-align: center" class="col-xs-1">Total Copies</th>
-				<th style="text-align: center" class="col-xs-1">Black n White Copies</th>
-				<th style="text-align: center" class="col-xs-1">Color Copies</th>
-			</tr>
-		</thead>
-		<tbody id="tbodyAssociados">
-			@foreach($departments as $index => $department)
-			<tr>
-				<td style="text-align: center;">{{$department->id}}</td>
-				<td style="text-align: center;">{{$department->name}}</td>
-				<td style="text-align: center;">{{$statisticsBlack[$index+1] + $statisticsColor[$index+1]}}</td>
-				<td style="text-align: center;">{{$statisticsBlack[$index+1]}}</td>
-				<td style="text-align: center;">{{$statisticsColor[$index+1]}}</td>
-			</tr>
-			@endforeach
-		</tbody>
-	</table>
-	{{$departments->render()}}
-</div>
-	
+@yield('content')
+<br><br><br>
 
-	<br><br>
-	@extends('layouts.footer')
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 ">
+			<div class="panel panel-default">
+				<div class="panel-heading" text-align="center"><b>Statistics By Department</b></div>
+				<div class="panel-body">
+					<div align="center">
+						<table id="listUsers" class="table table-hover sortable" id="users-admin" style="widows: 80%;">
+							<thead class="thead-inverse">
+								<tr>
+									<th style="text-align: center" class="col-xs-1">Department ID</th>
+									<th style="text-align: center" class="col-xs-1">Department Name</th>
+									<th style="text-align: center" class="col-xs-1">Color Copies - % </th>
+									<th style="text-align: center" class="col-xs-1">Black White Copies - %</th>
+									<th style="text-align: center" class="col-xs-1">Total Copies</th>
+								</tr>
+							</thead>
+							<tbody id="tbodyAssociados">
+								@foreach($departments as $index => $department)
+								<tr>
+									<td style="text-align: center;">{{$department->id}}</td>
+									<td style="text-align: center;">{{$department->name}}</td>
+									<td style="text-align: center;">{{$statisticsColor[$index+1]}}
+										@if($statisticsColor[$index+1] > 0)
+										- {{$statisticsColor[$index+1]/($statisticsBlack[$index+1] + $statisticsColor[$index+1])*100}}%
+										@endif
+									</td>
+									<td style="text-align: center;">{{$statisticsBlack[$index+1]}}
+										@if($statisticsBlack[$index+1] > 0)
+										- {{$statisticsBlack[$index+1]/($statisticsBlack[$index+1] + $statisticsColor[$index+1])*100}}%
+										@endif
+									</td>
+									<td style="text-align: center;">{{$statisticsBlack[$index+1] + $statisticsColor[$index+1]}}</td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
+						{{$departments->render()}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+
+<br><br>
+@extends('layouts.footer')
