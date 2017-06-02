@@ -72,7 +72,7 @@ class RegisterController extends Controller
         $user->confirmed = 1;
         $user->confirmation_code = null;
         $user->save();
-        return view('/welcome');
+        return view('confirmation');
     }
 }
     

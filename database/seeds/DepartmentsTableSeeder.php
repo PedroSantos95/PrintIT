@@ -20,7 +20,7 @@ class DepartmentsTableSeeder extends Seeder
             'Engenharia Informática',
             'Engenharia Mecânica',
             'Gestão e Economia',
-            'Matemática'
+            'Matemática',
         ];
         $createdAt = Carbon\Carbon::now()->subMonths(2);
         foreach ($departments as $department) {
