@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class RequestPrintController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['refuse', 'complete']]);
+    }
+
     public function list()
     {    
         $requests = DB::table('requests')->paginate(20);
@@ -68,6 +74,7 @@ class RequestPrintController extends Controller
 
     public function refuse(Request $requestHttp, $id)
     {
+
         $request = RequestPrint::findOrFail($id);
         $request->status = 1;
         $request->closed_user_id = \Auth::User()->id;

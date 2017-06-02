@@ -86,6 +86,7 @@
 								</div>
 								@endif
 							</div>
+							
 							<div class="form-group">
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Refused Reason</b></label>
 								@if($request->refused_reason)
@@ -98,6 +99,7 @@
 								</div>
 								@endif
 							</div>
+							
 							<div class="form-group">
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Satisfaction Grade</b></label>
 								@if($request->satisfaction_grade)
@@ -168,7 +170,7 @@
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Printer ID</b></label>
 								@if($request->printer_id)
 								<div  class="col-md-8">
-									{{$request->printer_id}}
+									{{$request->printer->name}}
 								</div>
 								@else
 								<div class="col-md-8">
@@ -188,6 +190,7 @@
 								</div>
 								@endif
 							</div>	
+							@if(Auth::User()->admin == 1)
 							<div class="row">
 								<div class="col-md-12">
 									<div class="col-md-1">
@@ -226,7 +229,8 @@
 										@endif
 									</div>
 								</div>
-							</div>	
+							</div>
+							@endif	
 							<hr>
 						</div>
 					</div>

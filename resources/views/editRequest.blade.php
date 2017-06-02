@@ -27,18 +27,25 @@
                                 <input id="quantity" type="text" class="form-control" name="quantity" value="{{$myRequests->quantity}}" required autofocus>
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('paperSize') ? ' has-error' : '' }}">
+                          <div class="form-group{{ $errors->has('paperSize') ? ' has-error' : '' }}">
                             <br>
                             <label for="paperSize" class="col-md-4 control-label">Paper Size</label>
-                            <div class="col-md-5">
-                                <input id="paperSize" type="text" class="form-control" name="paperSize" value="{{$myRequests->paper_size}}" required autofocus>
+                            <div style="padding-top: 7px"  class="col-md-5">
+                               <select  name="paperSize">
+                                    <option value="3">A3</option>
+                                    <option value="4">A4</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('paperType') ? ' has-error' : '' }}">
+                        <div  class="form-group{{ $errors->has('paperType') ? ' has-error' : '' }}">
                             <br>
                             <label for="paperType" class="col-md-4 control-label">Paper Type</label>
-                            <div class="col-md-5">
-                                <input id="paperType" type="text" class="form-control" name="paperType" value="{{$myRequests->paper_type}}" required autofocus>
+                            <div style="padding-top: 7px" class="col-md-5">
+                               <select   name="paperType">
+                                    <option value="0">Normal</option>
+                                    <option value="1">Photography</option>
+                                    <option value="2">Recycled</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('colored') ? ' has-error' : '' }}">
