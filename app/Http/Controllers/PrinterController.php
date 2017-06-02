@@ -8,6 +8,11 @@ use App\Printer;
 
 class PrinterController extends Controller
 {
+	    public function __construct()
+    {
+         $this->middleware('admin', ['only' => ['add', 'create']]);
+    }
+
     public function list()
     {    
 

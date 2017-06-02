@@ -68,20 +68,23 @@
                             <a class="dropdown-toggle menu-icon" href="#">Menu <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{url('/myRequests')}}">My Requests</a></li>
-                                <li><a href="{{url('/requests')}}">All Requests</a></li>
+                                <li><a href="{{url('/requests/create')}}">Add Request</a></li>
                                 <li><a href="{{url('/printers')}}">All Printers</a></li>
                             </ul>
                         </li>
                         @endif
                         @if(Auth::check())
+                        @if(Auth::User()->admin == 1)
                         <li class="dropdown">
                             <a class="dropdown-toggle menu-icon" href="#">Administration<i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
+                                <li><a href="{{url('/requests')}}">All Requests</a></li>
                                 <li><a href="{{url('/blockedComments')}}">Blocked Comments</a></li>
                                 <li><a href="{{url('/blockedUsers')}}">Blocked User</a></li>
                                 <li><a href="{{url('/adminPremissions')}}">Give Administrator Premissions</a></li>
                             </ul>
                         </li>
+                        @endif
                         @endif
                         @if(!Auth::check())
                         <li>

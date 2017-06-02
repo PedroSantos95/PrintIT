@@ -15,7 +15,7 @@ class RequestPrintController extends Controller
     
     public function __construct()
     {
-         
+         $this->middleware('admin', ['only' => ['complete','refuse', 'list']]);
     }
 
     public function list()

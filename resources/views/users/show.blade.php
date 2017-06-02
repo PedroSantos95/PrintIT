@@ -93,8 +93,8 @@
 						</div>
 						@endif
 					</form>
+					@if(Auth::User()->admin == 1)
 					@if($user->blocked == 0)
-
 					<form method="POST" action="{{route('blockUser', ['id' => $user->id])}}">
 						{{csrf_field()}}			
 						<div style="padding-left: 50px;" class="form-group" class="col-md-3">
@@ -110,6 +110,7 @@
 						<button type="submit" class="btn btn-success" style="width: 115px;" >Unblock User</button>
 					</div>
 				</form>
+				@endif
 				@endif
 				<div class="pull-right col-md-2	">
 					<button type="button" class="btn btn-primary" style="width: 100%">

@@ -22,11 +22,13 @@
 			@endforeach
 		</tbody>
 	</table>
+	@if(Auth::User()->admin == 1)
 	<div classe="col-md-12 col-md-offset-5" >
 	<button id="btn2" type="button" class="btn btn-primary">
 		<a href="{{url('/printers/addPrinter')}}"><span style="color: white;" >Add Printer</span></a>
 	</button>		
 	</div>
+	@endif
 	{{$printers->render()}}
 </div>
 

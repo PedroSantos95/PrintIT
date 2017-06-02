@@ -11,7 +11,7 @@ class UserController extends Controller
     
     public function __construct()
     {
-
+         $this->middleware('admin', ['only' => ['block','unblock', 'giveAdmin', 'removeAdmin', 'listBlock', 'listADmin', 'unblockList']]);
     }
 
     public function list()
@@ -83,7 +83,7 @@ class UserController extends Controller
     {
          $users = DB::table('users')->paginate(500);
 
-        return view('giveAdmin', compact('users'));
+         return view('giveAdmin', compact('users'));
 
     }
     

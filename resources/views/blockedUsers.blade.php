@@ -39,6 +39,7 @@
 				@else
 				<td style="text-align: center; padding-top: 35px;">No</td>
 				@endif
+					@if(Auth::User()->admin == 1)
 				<td style="text-align: center; padding-top: 27px;">
 				<form method="POST" action="{{route('unblockUserList', ['id' => $user->id])}}">
 					{{csrf_field()}}			
@@ -47,6 +48,7 @@
 					</div>
 				</form>
 				</td>
+				@endif
 					@endif
 			</tr>
 					

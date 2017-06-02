@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
 
+       public function __construct()
+    {
+         $this->middleware('admin', ['only' => ['block','unblock', 'listBlock', 'blockChilds']]);
+    }
+
    	public function addComment(Request $request){
    		//dd($request->all());
    		$comment = new Comments();

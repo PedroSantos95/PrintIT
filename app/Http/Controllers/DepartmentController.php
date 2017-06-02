@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+
     public function list()
     {
     	 $departments = DB::table('departments')->paginate(20);
