@@ -11,18 +11,19 @@
                 <div class="panel-heading"><center><h2><font face="verdana"><b>Rate Request</b></font></h2></center></div>
                 <div class="panel-body">                
                     {{csrf_field()}}    
-                    <div class="row">
-                       <label for="id" style="text-align: right" class="col-md-4 control-label"><b>Request ID</b></label>
-                       <div >
-                        {{$request->id}}
-                    </div>
-                    <label for="rating" style="text-align: left" class="col-md-4 control-label"">Rating</label>
+                    <div class="row ">
+                     <label for="id" style="text-align: right; padding-left: 50px" class=" col-md-4 control-label"><b>Request ID</b></label>
+                                <div >
+                                    {{$request->id}}
+                                </div>
+                            <label for="rating" style="text-align: left" class="col-md-2 control-label"">Rating</label>
+
                     <form method="POST" action="{{route('setRating', ['id' => $request->id])}}">
                         {{csrf_field()}}            
+
                         <div class="form-group" class="col-md-4">
-                            <button type="submit" class="btn btn-success">Complete</button>
-                            <div style="padding-top: 7px" class="col-md-5">
-                             <select  name="rating">
+                        
+                               <select  name="rating">
                                 <option value="0">Select an Option</option>
                                 <option value="1">1- Unsatistory</option>
                                 <option value="2">2- Average</option>
@@ -30,12 +31,17 @@
                                 <option value="4">4- Very Good</option>
                                 <option value="5">5- Excellent</option>
                             </select>
-                        </div>
+                              
                     </div>
+                    <div style="padding-left: 50px; padding-top: 20px" >
+                                <button style="padding-left: " type="submit" class="btn btn-success">Complete</button>
+                    </div>
+             
                 </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 
@@ -57,5 +63,5 @@
     </div>
 </div>
 @endif
-<br><br>
+<br>
 @extends('layouts.footer')
