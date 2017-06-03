@@ -23,7 +23,6 @@ class RequestPrintController extends Controller
 
         $requests = RequestPrint::paginate(20);
 
-
         return view('requests', compact('requests', 'user'));
     }
 
@@ -43,7 +42,7 @@ class RequestPrintController extends Controller
     }
 
     public function add(Request $request)
-    {
+    {        
         $requestPrint = new RequestPrint();
         $requestPrint->quantity = $request->get('quantity');
         $requestPrint->due_date = $request->get('due_date');
@@ -54,9 +53,12 @@ class RequestPrintController extends Controller
         $requestPrint->front_back = $request->get('frontback');
         $requestPrint->description = $request->get('description');
         $requestPrint->status = 0;
-        $requestPrint->file = $request->get('file');
+        $requestPrint->file = $request->file('file')->getClientOriginalName();
         $requestPrint->owner_id = Auth::User()->id;
         $requestPrint->save();
+
+        $request->file('file')->move(
+            base_path() . '/public/img/requests/', $requestPrint->file);
 
         return redirect('requests');
     }

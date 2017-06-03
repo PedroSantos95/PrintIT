@@ -46,6 +46,7 @@ class RegisterController extends Controller
             'presentation' => $data['presentation'],
             'admin' => "0",
             'blocked' => "0",
+            'profile_photo' => $data['profile_photo'],
             'department_id' => "1",
             'activated' => "0",
             'confirmation_code' => $confirmation_code,

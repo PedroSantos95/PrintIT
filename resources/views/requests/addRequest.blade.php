@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Add New Request</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" role="form" action="{{route('createRequest')}}">
+                    <form class="form-horizontal" method="POST" role="form" action="{{route('createRequest')}}" enctype="multipart/form-data" >
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
                             <br>
