@@ -261,6 +261,7 @@
 							<hr>
 						</div>
 					</div>
+					 <i class="fa fa-calendar v-icon icn-holder"></i>
 					<ul class="list-group">
 						@foreach ($comments as $comment)
 						@if($comment->parent_id == null)

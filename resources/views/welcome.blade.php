@@ -1,68 +1,68 @@
     @extends('layouts.header')
 
-@yield('content')
+    @yield('content')
 
-<div id="container">
+    <div id="container">
 
-    <!--Set your own slider options. Look at the v_RevolutionSlider() function in 'theme-core.js' file to see options-->
-    <div class="home-slider-wrap fullwidthbanner-container" id="home">
-        <div class="v-rev-slider" data-slider-options='{ "startheight": 700 }'>
-            <ul>
-                
-                <li data-transition="fade" data-slotamount="7" data-masterspeed="600">
+        <!--Set your own slider options. Look at the v_RevolutionSlider() function in 'theme-core.js' file to see options-->
+        <div class="home-slider-wrap fullwidthbanner-container" id="home">
+            <div class="v-rev-slider" data-slider-options='{ "startheight": 700 }'>
+                <ul>
 
-                    <img src="img/slider/image2.png" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                    <li data-transition="fade" data-slotamount="7" data-masterspeed="600">
 
-                    <div class="tp-caption v-caption-big-white sfl stl"
+                        <img src="img/slider/image2.png" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                        <div class="tp-caption v-caption-big-white sfl stl"
+                        data-x="450"
+                        data-y="245"
+                        data-speed="600"
+                        data-start="600"
+                        data-easing="Power1.easeInOut"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0"
+                        data-endelementdelay="0"
+                        data-endspeed="300">
+                        YOUR BEST CHOICE
+                        <br />
+                        TO PRINT STUFF
+                    </div>
+
+                    <div class="tp-caption v-caption-h1 sfl stl"
                     data-x="450"
-                    data-y="245"
-                    data-speed="600"
-                    data-start="600"
+                    data-y="360"
+                    data-speed="700"
+                    data-start="1200"
                     data-easing="Power1.easeInOut"
                     data-splitin="none"
                     data-splitout="none"
                     data-elementdelay="0"
                     data-endelementdelay="0"
                     data-endspeed="300">
-                    YOUR BEST CHOICE
-                    <br />
-                    TO PRINT STUFF
+                    Built on cutting edge technology.<br>
+                    Print easily using PrintIT.
                 </div>
 
-                <div class="tp-caption v-caption-h1 sfl stl"
-                data-x="450"
-                data-y="360"
-                data-speed="700"
-                data-start="1200"
+
+
+                <div class="tp-caption sfl stl"
+                data-x="110"
+                data-y="130"
+                data-speed="600"
+                data-start="1800"
                 data-easing="Power1.easeInOut"
                 data-splitin="none"
                 data-splitout="none"
                 data-elementdelay="0"
                 data-endelementdelay="0"
                 data-endspeed="300">
-                Built on cutting edge technology.<br>
-                Print easily using PrintIT.
+                <!--<a href='#' class="btn v-btn v-third-light">GET IT NOW!</a>-->
+                <img src="img/iphone2.png" />
             </div>
+        </li>
 
-          
-
-    <div class="tp-caption sfl stl"
-    data-x="110"
-    data-y="130"
-    data-speed="600"
-    data-start="1800"
-    data-easing="Power1.easeInOut"
-    data-splitin="none"
-    data-splitout="none"
-    data-elementdelay="0"
-    data-endelementdelay="0"
-    data-endspeed="300">
-    <!--<a href='#' class="btn v-btn v-third-light">GET IT NOW!</a>-->
-    <img src="img/iphone2.png" />
-</div>
-</li>
-
-</ul>
+    </ul>
 </div>
 
 <div class="shadow-right"></div>
@@ -72,24 +72,24 @@
 
 <div class="container">
     <div class="row center v-counter-wrap">
-        <div class="col-sm-3">
-            <i class="fa fa-building v-icon icn-holder"></i>
+        <div class="col-sm-2">
+            <i class="fa fa-print v-icon icn-holder"></i>
             <div class="v-counter">
                 <div class="count-number" data-from="0" data-to="{{$totalPrints}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
                 <h6 class="v-counter-text">All time printed copies</h6>
             </div>
         </div>
-        <div class="col-sm-3">
-            <i class="fa fa-flash v-icon icn-holder"></i>
+        <div class="col-sm-2">
+            <i class="fa fa-file-image-o v-icon icn-holder"></i>
             <div class="v-counter">
                 <div class="count-number" data-from="0" data-to="{{$coloredPrints}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
                 <h6 class="v-counter-text">All time printed Colored Copies</h6>
             </div>
         </div>
-        <div class="col-sm-3">
-            <i class="fa fa-laptop v-icon icn-holder"></i>
+        <div class="col-sm-2">
+            <i class="fa fa-file-pdf-o v-icon icn-holder"></i>
             <div class="v-counter">
                 <div class="count-number" data-from="0" data-to="{{$blackPrints}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
@@ -97,14 +97,33 @@
             </div>
         </div>
 
-        <div class="col-sm-3">
-            <i class="fa fa-umbrella v-icon icn-holder"></i>
+
+        <div class="col-sm-2">
+            <i class="fa fa-clock-o v-icon icn-holder"></i>
+            <div class="v-counter">
+                <div class="count-number" data-from="0" data-to="{{$printsDay}}" data-speed="1500" data-refresh-interval="25"></div>
+                <div class="count-divider"><span></span></div>
+                <h6 class="v-counter-text">Printed Today</h6>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <i class="fa fa-calendar v-icon icn-holder"></i>
+            <div class="v-counter">
+                <div class="count-number" data-from="0" data-to="{{$printMonth}}" data-speed="1500" data-refresh-interval="25"></div>
+                <div class="count-divider"><span></span></div>
+                <h6 class="v-counter-text">Printed this Month</h6>
+            </div>
+        </div
+
+        <div class="col-sm-2">
+            <i class="fa fa-heart v-icon icn-holder"></i>
             <div class="v-counter">
                 <div class="count-number" data-from="0" data-to="{{$usersCount}}" data-speed="1500" data-refresh-interval="25"></div>
                 <div class="count-divider"><span></span></div>
                 <h6 class="v-counter-text">Total Users</h6>
             </div>
-        </div>
+        </div
     </div>
 </div>
 
@@ -180,9 +199,18 @@
                 <p class="lead" style="color: #999;">
                     Black and White vs Colour Prints:
                 </p>
+                <br>
             </div>
-            <div class="v-spacer col-sm-12 v-height-standard"></div>
+
+            <div class="v-spacer col-sm-12 ">
+
+
+                <div id="chart-div"></div>
+                <?= Lava::render('PieChart', 'IMDB', 'chart-div') ?>
+                    
+            </div>  
         </div>
+
     </div>
 </div>
 <!--End Screenshots-->

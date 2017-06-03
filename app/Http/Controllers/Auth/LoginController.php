@@ -22,8 +22,10 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $user = User::where('email', $request->get('email'))->firstOrFail();
-
-        if($user->activated ==1 && $user->blocked ==0){
+        
+            
+        if($user->activated == 1 && $user->blocked == 0){
+            dd('ola');
             $this->validate($request, [
             $this->username() => 'required|string',
             'password' => 'required|string',
