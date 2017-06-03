@@ -80,13 +80,11 @@ function doSearch() {
 					<br>
 				<span><b>Users By Department:</b></span>
 					<div id="poll_div"></div>
-
 					<?= Lava::render('BarChart', 'Users', 'poll_div') ?>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>	
 
 <br><br>

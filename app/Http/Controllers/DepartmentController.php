@@ -66,13 +66,23 @@ class DepartmentController extends Controller
 
     public function barChart()
     {
+        $departments = DB::table('departments')->get();
+        foreach ($departments as $department) 
+         {
+             $departmentUsers[$department->id] = DB::table('users')->where('department_id', '=', $department->id)->count();
+         
+        }
+
+
          $reasons = \Lava::DataTable();
 
          $reasons->addStringColumn('Users')
-          ->addNumberColumn('Users')
-          ->addRow([$department->id,  3])
-          ->addRow(['Engenharia Civil',  7])
-          ->addRow(['Engenharia Informatica',  4]);
+          ->addNumberColumn('Users');
+
+          foreach($departmentUsers as $index => $departmentUser)
+          {
+            $reasons->addRow([$index, $departmentUser]);
+          }
 
           \Lava::BarChart('Users', $reasons);
     }
