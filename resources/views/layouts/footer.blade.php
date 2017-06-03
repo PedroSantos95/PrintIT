@@ -110,6 +110,7 @@
 <script src="{{asset('js/theme-plugins.js')}}"></script>
 <script src="{{asset('js/jquery.isotope.min.js')}}"></script>
 <script src="{{asset('js/imagesloaded.js')}}"></script>
+<script type="{{asset('js/search.js')}}"></script>
 
 <script src="{{asset('js/view.min.js?auto')}}"></script>
 
