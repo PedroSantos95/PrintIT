@@ -79,9 +79,12 @@ class DepartmentController extends Controller
          $reasons->addStringColumn('Users')
           ->addNumberColumn('Users');
 
+          
           foreach($departmentUsers as $index => $departmentUser)
           {
-            $reasons->addRow([$index, $departmentUser]);
+            $example = DB::table('departments')->where('id', '=', $index)->get();
+            if($departmentUser != 0)
+            $reasons->addRow([ $example[0]->name, $departmentUser]);
           }
 
           \Lava::BarChart('Users', $reasons);

@@ -77,15 +77,16 @@ function doSearch() {
 						</table>
 						{{$departments->render()}}
 					</div>
-					<br>
-				<span><b>Users By Department:</b></span>
-					<div id="poll_div"></div>
-					<?= Lava::render('BarChart', 'Users', 'poll_div') ?>
-				</div>
+					
 			</div>
 		</div>
+		<br>
+
 	</div>
 </div>	
-
+				<span><b>Users By Department:</b></span>
+				<div id="poll_div"></div>
+					<?= Lava::render('BarChart', 'Users', 'poll_div') ?>
+				</div>	
 <br><br>
 @extends('layouts.footer')
