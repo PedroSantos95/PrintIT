@@ -42,7 +42,7 @@ function doSearch() {
 					<div align="center">
 						<table id="listUsers" class="table table-hover sortable" id="users-admin" style="widows: 80%;">
 							<div class="row"> 
-			<div class="col-md-1 col-md-offset-9" style="padding-left: 50px">
+			<div class="col-md-2 " style="padding-left: 20px">
 				<input placeholder="    Search here:" type="text" id="searchTerm" class="search_box" onkeyup="doSearch()" />
 			</div>
 	</div>

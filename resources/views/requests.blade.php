@@ -54,7 +54,7 @@ function doSearch() {
 			@foreach($requests as $index => $request)
 			<tr>
 				<td style="text-align: center; padding-top: 15px;">{{$request->id}}</td>
-				<td style="text-align: center; padding-top: 15px;">{{$request->user->name}}</td>
+				<td id="name" style="text-align: center; padding-top: 15px;">{{$request->user->name}}</td>
 				@if($request->colored == 1)
 				<td style="text-align: center; padding-top: 15px;">YES</td>	
 				@else

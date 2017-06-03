@@ -35,11 +35,6 @@ function doSearch() {
 @if(Auth::check())
 <div align="center">
 	<table id="listPrinters" class=" table table-hover sortable" id="users-admin" style="width:80%;">
-		<div class="row"> 
-			<div class="col-md-1 col-md-offset-9" style="padding-left: 50px">
-				<input placeholder="    Search here:" type="text" id="searchTerm" class="search_box" onkeyup="doSearch()" />
-			</div>
-	</div>
 		<thead class="thead-inverse">
 			<tr>
 				<th style="text-align: center" class="col-xs-1">Name</th>
