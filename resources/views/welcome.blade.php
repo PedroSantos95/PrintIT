@@ -203,10 +203,8 @@
             </div>
 
             <div class="v-spacer col-sm-12 ">
-
-
                 <div id="chart-div"></div>
-                <?= Lava::render('PieChart', 'IMDB', 'chart-div') ?>
+                <?= \Lava::render('PieChart', 'IMDB', 'chart-div') ?>
                     
             </div>  
         </div>

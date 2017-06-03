@@ -5,6 +5,7 @@
 		$('#showParentId').html(parent.comment);
 		document.getElementById('showParentId').style.display = "block";
 		document.getElementById('showParentTitle').style.display = "block";
+		document.getElementById('icon').style.display = "block";
 		document.getElementById('showParentTitle').value = 'Replaying To: ' + parent.id;
 		window.location.href = "#showParentId";
 	}
@@ -261,14 +262,15 @@
 							<hr>
 						</div>
 					</div>
-					 <i class="fa fa-calendar v-icon icn-holder"></i>
-					<ul class="list-group">
+					 <i class="fa fa-comments v-icon icn-holder"></i>
+					 <br>
+					<ul style="padding-top: 5px" class="list-group">
 						@foreach ($comments as $comment)
 						@if($comment->parent_id == null)
 						@if($comment->blocked == 0)
 						<li class="list-group-item">
 							<strong>
-								{{$comment->user_id}} - {{$comment->created_at->diffForHumans()}}
+								{{$comment->user->name}} - {{$comment->created_at->diffForHumans()}} <br>
 							</strong>
 							{{$comment->comment}}
 							<div>
@@ -283,7 +285,7 @@
 							@if($comment2->blocked == 0)
 							<li class="list-group-item" style="margin-left: 20px" >
 								<strong>
-									{{$comment2->user_id}} - {{$comment2->created_at->diffForHumans()}}
+									{{$comment2->user->name}} - {{$comment2->created_at->diffForHumans()}} <br>
 								</strong>
 								{{$comment2->comment}}
 								<div>
@@ -302,8 +304,11 @@
 						@endforeach
 					</ul>
 					<hr>
+										 
+		
 					<div class="card">
 						<div class="card-block">
+						<i id="icon" style="display: none" class="fa fa-reply v-icon icn-holder"></i>
 							<span id="showParentTitle" style="display: none;"><b>Replaying To:</b></span>
 						<li class="list-group-item" id="showParentId" style="display: none;">
 						</li>

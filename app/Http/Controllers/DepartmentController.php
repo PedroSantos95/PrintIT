@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Department;
 use Illuminate\Http\Request;
+use Khill\Lavacharts\Lavacharts;
 
 class DepartmentController extends Controller
 {
@@ -14,12 +15,13 @@ class DepartmentController extends Controller
     	 $departments = DB::table('departments')->paginate(20);
          $statisticsBlack = array();
          $statisticsColor = array();
+         $barChart = $this->barChart();
 
         foreach ($departments as $department) {
             $statisticsBlack[$department->id] = $this->getBlackPrintsDepartment($department->id);
             $statisticsColor[$department->id] = $this->getColorPrintsDepartment($department->id);
         }
-        return view('department', compact('departments', 'statisticsBlack', 'statisticsColor'));    	
+        return view('department', compact('departments', 'statisticsBlack', 'statisticsColor', 'barChart'));    	
     }
 
     public function getColoredPrintsByDepartment($id)
@@ -60,6 +62,19 @@ class DepartmentController extends Controller
         }
 
         return $counter;
+    }
+
+    public function barChart()
+    {
+         $reasons = \Lava::DataTable();
+
+         $reasons->addStringColumn('Users')
+          ->addNumberColumn('Users')
+          ->addRow([$department->id,  3])
+          ->addRow(['Engenharia Civil',  7])
+          ->addRow(['Engenharia Informatica',  4]);
+
+          \Lava::BarChart('Users', $reasons);
     }
     
 }
