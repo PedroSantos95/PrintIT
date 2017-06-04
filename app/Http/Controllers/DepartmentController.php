@@ -84,10 +84,10 @@ class DepartmentController extends Controller
           {
             $example = DB::table('departments')->where('id', '=', $index)->get();
             if($departmentUser != 0)
-            $reasons->addRow([ $example[0]->name, $departmentUser]);
+            $reasons->addRow([  $example[0]->name, $departmentUser]);
           }
 
-          \Lava::BarChart('Users', $reasons);
+          \Lava::ColumnChart('Users', $reasons);
     }
     
 }

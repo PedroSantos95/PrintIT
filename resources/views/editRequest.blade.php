@@ -84,6 +84,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">
+                            <br>
+                            <label for="quantity" class="col-md-4 control-label">File</label>
+                            <div class="col-md-5">
+                                <input id="file" type="file" class="form-control" name="file" value="{{$myRequests->file}}" required autofocus>
+                        </div>
+                        </div>
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <br>
                             <label for="description" class="col-md-4 control-label">Description</label>

@@ -11,6 +11,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Add New Request</div>
                 <div class="panel-body">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Ups!</strong>Por favor preencha de novo os campos, com atenção:<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                     <form class="form-horizontal" method="POST" role="form" action="{{route('createRequest')}}" enctype="multipart/form-data" >
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('quantity') ? ' has-error' : '' }}">

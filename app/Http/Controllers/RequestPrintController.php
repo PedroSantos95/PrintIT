@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use DB;
 use App\Comments;
 use App\Printer;
+use Validator;
 use Carbon\Carbon;
 use App\RequestPrint;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;    
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class RequestPrintController extends Controller
 {
@@ -42,7 +44,21 @@ class RequestPrintController extends Controller
     }
 
     public function add(Request $request)
-    {        
+    {   
+         $rules = [
+            'quantity'=>'required',
+            'due_date'=>'required | date',
+            'file' => 'required'
+        ];
+        
+        
+        $validator=Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput(Input::all());
+        }
+
         $requestPrint = new RequestPrint();
         $requestPrint->quantity = $request->get('quantity');
         $requestPrint->due_date = $request->get('due_date');
@@ -60,7 +76,8 @@ class RequestPrintController extends Controller
         $request->file('file')->move(
             base_path() . '/public/img/requests/', $requestPrint->file);
 
-        return redirect('requests');
+        return redirect('myRequests');
+        
     }
 
     public function complete(Request $request, $id)

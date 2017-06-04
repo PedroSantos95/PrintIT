@@ -62,12 +62,12 @@ function doSearch() {
 									<td style="text-align: center;">{{$department->name}}</td>
 									<td style="text-align: center;">{{$statisticsColor[$index+1]}}
 										@if($statisticsColor[$index+1] > 0)
-										- {{$statisticsColor[$index+1]/($statisticsBlack[$index+1] + $statisticsColor[$index+1])*100}}%
+										- {{ number_format(($statisticsColor[$index+1]/($statisticsBlack[$index+1] + $statisticsColor[$index+1])*100),2)}}%
 										@endif
 									</td>
 									<td style="text-align: center;">{{$statisticsBlack[$index+1]}}
 										@if($statisticsBlack[$index+1] > 0)
-										- {{$statisticsBlack[$index+1]/($statisticsBlack[$index+1] + $statisticsColor[$index+1])*100}}%
+										- {{number_format(($statisticsBlack[$index+1]/($statisticsBlack[$index+1] + $statisticsColor[$index+1])*100),2)}}%
 										@endif
 									</td>
 									<td style="text-align: center;">{{$statisticsBlack[$index+1] + $statisticsColor[$index+1]}}</td>
@@ -86,7 +86,7 @@ function doSearch() {
 </div>	
 				<span><b>Users By Department:</b></span>
 				<div id="poll_div"></div>
-					<?= Lava::render('BarChart', 'Users', 'poll_div') ?>
+					<?= Lava::render('ColumnChart', 'Users', 'poll_div') ?>
 				</div>	
 <br><br>
 @extends('layouts.footer')

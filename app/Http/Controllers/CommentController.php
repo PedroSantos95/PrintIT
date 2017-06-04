@@ -15,7 +15,8 @@ class CommentController extends Controller
          $this->middleware('admin', ['only' => ['block','unblock', 'listBlock', 'blockChilds']]);
     }
 
-   	public function addComment(Request $request){
+   	public function addComment(Request $request)
+      {
    		//dd($request->all());
    		$comment = new Comments();
    		$comment->comment = $request->get('body');
@@ -30,7 +31,8 @@ class CommentController extends Controller
 
    	}
 
-   	public function block($id, $commentId){
+   	public function block($id, $commentId)
+      {
 
    		$comment = Comments::FindOrFail($commentId);
    		$comment->blocked = 1;
@@ -46,7 +48,8 @@ class CommentController extends Controller
         return view('blockedComments', compact('comments'));
    	}
 
-   	public function unblock($id){
+   	public function unblock($id)
+      {
    		$comment = Comments::FindOrFail($id);
    		$comment->blocked = 0;
    		$comment->save();
@@ -54,7 +57,8 @@ class CommentController extends Controller
    		return redirect()->route('showBlocked');
    	}
 
-      public function blockChilds($comment){
+      public function blockChilds($comment)
+      {
          $comments = Comments::where('parent_id',$comment->id)->get();
 
          foreach($comments as $comment){

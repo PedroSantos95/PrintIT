@@ -62,6 +62,9 @@
 			@endforeach
 		</tbody>
 	</table>
+	<button id="btn2" style="width: 120px" type="button" class="btn btn-success">
+						<a href="{{route('addRequest')}}" ><span style="color: white;" >New Request</span></a>
+					</button>	
 </div>
 
 @else

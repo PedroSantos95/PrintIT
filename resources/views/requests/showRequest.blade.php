@@ -189,6 +189,12 @@
 								@endif
 							</div>
 							<div class="form-group">
+								<label for="file" style="text-align: right;" class="col-md-4 control-label"><b>File</b></label>
+								<div  class="col-md-8">
+									{{$request->file}}
+								</div>
+							</div>
+							<div class="form-group">
 								<label for="name" style="text-align: right;" class="col-md-4 control-label"><b>Owner</b></label>
 								<div  class="col-md-8">
 									{{$request->user->name}}
